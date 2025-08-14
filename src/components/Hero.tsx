@@ -31,9 +31,11 @@ const Hero = () => {
               <Button size="lg" className="shadow-luxury hover:shadow-glow text-lg px-8 py-6">
                 Call for Booking
               </Button>
+              <link to="/services">
               <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5">
                 Our Services
-              </Button>
+                </Button>
+                </link>
             </div>
 
             {/* Quick Stats */}
