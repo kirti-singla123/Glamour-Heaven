@@ -1,7 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
+import { useRouter } from "next/navigation"; // Next.js 13+ router
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <section className="relative min-h-[80vh] flex items-start justify-center bg-gradient-hero overflow-hidden pt-20">
       {/* Background decorative elements */}
@@ -31,11 +36,15 @@ const Hero = () => {
               <Button size="lg" className="shadow-luxury hover:shadow-glow text-lg px-8 py-6">
                 Call for Booking
               </Button>
-              <link to="/services">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5">
+
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5"
+                onClick={() => router.push("/services")}
+              >
                 Our Services
-                </Button>
-                </link>
+              </Button>
             </div>
 
             {/* Quick Stats */}
