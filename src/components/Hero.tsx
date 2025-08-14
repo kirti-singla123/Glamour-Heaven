@@ -60,7 +60,7 @@ const Hero = () => {
               <img
                 src={heroImage}
                 alt="Professional beauty treatment"
-                className="relative w-full max-w-md lg:max-w-lg rounded-full shadow-luxury object-cover"
+                className="relative w-full max-w-xl lg:max-w-2xl rounded-full shadow-luxury object-cover"
               />
               
               {/* Floating service cards */}
