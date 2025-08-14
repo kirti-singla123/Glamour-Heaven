@@ -34,7 +34,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["info@glowbeauty.com", "appointments@glowbeauty.com"]
+      details: ["glamourheaven.com", "appointments@glowbeauty.com"]
     },
     {
       icon: <Clock className="w-6 h-6" />,
