@@ -62,34 +62,37 @@ const Contact = () => {
 
         <div className="max-w-2xl mx-auto mb-16">
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
-              <div className="grid gap-6">
-                {contactInfo.map((info, index) => (
-                  <Card key={index} className="shadow-soft hover:shadow-luxury transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow">
-                          {info.icon}
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-lg mb-2">{info.title}</h3>
-                          {info.details.map((detail, idx) => (
-                            <p key={idx} className="text-muted-foreground">
-                              {detail}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+<div className="space-y-8">
+  <div>
+    <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
+    <div className="grid gap-6">
+      {contactInfo.map((info, index) => (
+        <Card
+          key={index}
+          className="shadow-soft hover:shadow-luxury transition-all duration-300"
+        >
+          <CardContent className="p-6">
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow">
+                {info.icon}
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2">{info.title}</h3>
+                {info.details.map((detail, idx) => (
+                  <p key={idx} className="text-muted-foreground">
+                    {detail}
+                  </p>
                 ))}
               </div>
             </div>
-      </div>
+          </CardContent>
+        </Card>
+      ))}
     </div>
-  );
+  </div>
+</div> {/* ✅ Added missing closing div */}
+</div> {/* ✅ This closes your main container */}
+);
 };
 
 export default Contact;
