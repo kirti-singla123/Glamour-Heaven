@@ -1,7 +1,25 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Clock, 
+  Instagram, 
+  Facebook, 
+  MessageCircle 
+} from "lucide-react";
 
 const Contact = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted");
+  };
+
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -69,8 +87,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   );
