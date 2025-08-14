@@ -34,7 +34,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["glamourheaven.com", "appointments@glowbeauty.com"]
+      details: ["glamourheaven.com", "appointments@glamourheaven.com"]
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -87,26 +87,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-
-
-            {/* Quick Actions */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Quick Actions</h3>
-              <div className="space-y-3">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="w-full justify-start border-primary/30 hover:bg-primary/5"
-                  onClick={() => window.open('tel:+919876543210')}
-                >
-                  <Phone className="w-5 h-5 mr-3" />
-                  Call Now for Appointment
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   );
