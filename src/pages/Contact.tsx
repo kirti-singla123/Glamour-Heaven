@@ -9,22 +9,22 @@ import {
 const Contact = () => {
   const contactInfo = [
     {
-      icon: <MapPin className="w-6 h-6 text-amber-500" />,
+      icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
       details: ["123 Beauty Street", "Fashion District, Mumbai", "Maharashtra 400001"]
     },
     {
-      icon: <Phone className="w-6 h-6 text-emerald-500" />,
+      icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
       details: ["+91 98765 43210", "+91 98765 43211"]
     },
     {
-      icon: <Mail className="w-6 h-6 text-cyan-500" />,
+      icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       details: ["glamourheaven.com", "appointments@glamourheaven.com"]
     },
     {
-      icon: <Clock className="w-6 h-6 text-yellow-500" />,
+      icon: <Clock className="w-6 h-6" />,
       title: "Opening Hours",
       details: ["Mon - Sat: 9:00 AM - 8:00 PM", "Sunday: 10:00 AM - 6:00 PM"]
     }
@@ -35,10 +35,10 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         {/* Tagline */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-yellow-300 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-golden bg-clip-text text-transparent">
             "Your Beauty, Our Passion"
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Experience the art of beauty and self-care at Glamour Heaven.
           </p>
         </div>
@@ -53,8 +53,14 @@ const Contact = () => {
           <div className="text-center mb-10">
             <p className="text-lg text-gray-700 font-medium">
               💍 Planning your big day? Ask us about our{" "}
-              <span className="text-amber-500 font-semibold">exclusive bridal packages</span> and{" "}
-              <span className="text-emerald-500 font-semibold">special discounts</span> just for you!
+              <span className="bg-gradient-golden bg-clip-text text-transparent font-semibold">
+                exclusive bridal packages
+              </span>{" "}
+              and{" "}
+              <span className="bg-gradient-golden bg-clip-text text-transparent font-semibold">
+                special discounts
+              </span>{" "}
+              just for you!
             </p>
           </div>
 
@@ -62,17 +68,17 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
-                className="shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-xl"
+                className="shadow-soft hover:shadow-luxury transition-shadow duration-300 rounded-xl"
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-tr from-amber-400 via-yellow-300 to-emerald-400 rounded-full flex items-center justify-center text-white shadow-lg">
+                    <div className="w-14 h-14 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow">
                       {info.icon}
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-2 text-gray-800">{info.title}</h3>
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600">
+                        <p key={idx} className="text-muted-foreground">
                           {detail}
                         </p>
                       ))}
