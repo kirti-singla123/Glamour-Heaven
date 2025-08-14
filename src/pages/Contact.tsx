@@ -35,7 +35,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         {/* Tagline */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-golden bg-clip-text text-transparent">
             "Your Beauty, Our Passion"
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -45,7 +45,7 @@ const Contact = () => {
 
         {/* Contact Information */}
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">Contact Information</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">We’re Here for You</h2>
           <div className="grid gap-6">
             {contactInfo.map((info, index) => (
               <Card
