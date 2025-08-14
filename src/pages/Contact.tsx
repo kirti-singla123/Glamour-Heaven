@@ -107,24 +107,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Map Section */}
-        <Card className="shadow-luxury">
-          <CardHeader>
-            <CardTitle className="text-2xl">Find Us</CardTitle>
-            <CardDescription>
-              Located in the heart of Mumbai's fashion district
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-0">
-            <div className="w-full h-64 bg-gradient-hero rounded-b-lg flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                <MapPin className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <p className="text-lg font-medium">Interactive Map Coming Soon</p>
-                <p className="text-sm">123 Beauty Street, Fashion District, Mumbai</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

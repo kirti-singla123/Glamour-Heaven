@@ -21,7 +21,7 @@ const Navigation = () => {
               <span className="text-primary-foreground font-bold text-xl">G</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Glow Beauty</h1>
+              <h1 className="text-xl font-bold text-foreground">Glamour Haven</h1>
               <p className="text-sm text-muted-foreground">Salon & Spa</p>
             </div>
           </Link>
@@ -47,14 +47,11 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a 
               href="tel:+919876543210" 
-              className="hidden sm:flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+              className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span className="text-sm">+91 98765 43210</span>
             </a>
-            <Button variant="default" size="sm" className="shadow-soft hover:shadow-glow">
-              Book Now
-            </Button>
           </div>
         </div>
       </div>

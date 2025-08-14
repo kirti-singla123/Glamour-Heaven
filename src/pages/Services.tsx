@@ -244,10 +244,7 @@ const Services = () => {
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Contact us today to schedule your appointment and experience the luxury of professional beauty care
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-luxury hover:shadow-glow">
-              Book Appointment
-            </Button>
+          <div className="flex justify-center">
             <Button 
               size="lg" 
               variant="outline" 
