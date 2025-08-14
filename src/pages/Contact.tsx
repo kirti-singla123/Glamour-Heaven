@@ -46,6 +46,22 @@ const Contact = () => {
         {/* Contact Information */}
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-center">We’re Here for You</h2>
+
+           {/* Bridal packages message */}
+  <div className="text-center mb-8">
+    <p className="text-lg text-gray-700 font-medium">
+      💍 Planning your big day? Ask us about our{" "}
+      <span className="text-pink-600 font-semibold">
+        exclusive bridal packages
+      </span>{" "}
+      and{" "}
+      <span className="text-pink-600 font-semibold">
+        special discounts
+      </span>{" "}
+      just for you!
+    </p>
+  </div>
+
           <div className="grid gap-6">
             {contactInfo.map((info, index) => (
               <Card
