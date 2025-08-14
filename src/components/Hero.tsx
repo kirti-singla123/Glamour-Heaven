@@ -1,18 +1,19 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
-import { useRouter } from "next/navigation"; // Next.js 13+ router
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <section className="relative min-h-[80vh] flex items-start justify-center bg-gradient-hero overflow-hidden pt-20">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-32 h-32 bg-golden-accent/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-soft-pink/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div
+          className="absolute bottom-20 right-10 w-40 h-40 bg-soft-pink/30 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "1s" }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
@@ -32,6 +33,7 @@ const Hero = () => {
               </p>
             </div>
 
+            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="shadow-luxury hover:shadow-glow text-lg px-8 py-6">
                 Call for Booking
@@ -41,7 +43,7 @@ const Hero = () => {
                 variant="outline"
                 size="lg"
                 className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5"
-                onClick={() => router.push("/services")}
+                onClick={() => navigate("/services")}
               >
                 Our Services
               </Button>
@@ -65,7 +67,10 @@ const Hero = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div
+            className="relative flex justify-center lg:justify-end animate-fade-in"
+            style={{ animationDelay: "0.3s" }}
+          >
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-golden rounded-full opacity-20 blur-2xl animate-pulse"></div>
               <img
@@ -73,14 +78,17 @@ const Hero = () => {
                 alt="Professional beauty treatment"
                 className="relative w-full max-w-xl lg:max-w-2xl rounded-full shadow-luxury object-cover"
               />
-              
+
               {/* Floating service cards */}
               <div className="absolute -top-8 -left-8 bg-card p-4 rounded-lg shadow-soft animate-float">
                 <div className="text-sm font-medium">Professional Care</div>
                 <div className="text-xs text-muted-foreground">Expert Treatments</div>
               </div>
-              
-              <div className="absolute -bottom-4 -right-8 bg-card p-4 rounded-lg shadow-soft animate-float" style={{ animationDelay: '1.5s' }}>
+
+              <div
+                className="absolute -bottom-4 -right-8 bg-card p-4 rounded-lg shadow-soft animate-float"
+                style={{ animationDelay: "1.5s" }}
+              >
                 <div className="text-sm font-medium">Premium Quality</div>
                 <div className="text-xs text-muted-foreground">Luxury Experience</div>
               </div>
