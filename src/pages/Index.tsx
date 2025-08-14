@@ -117,9 +117,6 @@ const Index = () => {
               Book your appointment today and experience the luxury of professional beauty care
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-luxury hover:shadow-glow">
-                Book Appointment
-              </Button>
               <Link to="/contact">
                 <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5">
                   Contact Us

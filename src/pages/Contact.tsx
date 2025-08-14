@@ -60,60 +60,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Contact Form */}
-          <Card className="shadow-luxury">
-            <CardHeader>
-              <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-              <CardDescription>
-                Fill out the form below and we'll get back to you within 24 hours
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" required />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" required />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" placeholder="Enter your phone number" required />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="service">Interested Service</Label>
-                  <Input id="service" placeholder="Which service are you interested in?" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us about your requirements or any questions you have"
-                    className="min-h-[120px]"
-                    required
-                  />
-                </div>
-                
-                <Button type="submit" size="lg" className="w-full shadow-luxury hover:shadow-glow">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
+        <div className="max-w-2xl mx-auto mb-16">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
@@ -141,30 +88,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Media */}
-            <Card className="shadow-soft">
-              <CardHeader>
-                <CardTitle>Follow Us</CardTitle>
-                <CardDescription>
-                  Stay updated with our latest treatments and beauty tips
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex space-x-4">
-                  {socialLinks.map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground hover:shadow-glow transition-all duration-300 hover:scale-110"
-                    >
-                      {social.icon}
-                    </a>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
 
             {/* Quick Actions */}
             <div className="space-y-4">
@@ -178,15 +101,6 @@ const Contact = () => {
                 >
                   <Phone className="w-5 h-5 mr-3" />
                   Call Now for Appointment
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="w-full justify-start border-primary/30 hover:bg-primary/5"
-                  onClick={() => window.open('https://wa.me/919876543210')}
-                >
-                  <MessageCircle className="w-5 h-5 mr-3" />
-                  WhatsApp Us
                 </Button>
               </div>
             </div>

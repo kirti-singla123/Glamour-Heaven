@@ -29,7 +29,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="shadow-luxury hover:shadow-glow text-lg px-8 py-6">
-                Book Appointment
+                Call for Booking
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5">
                 Our Services

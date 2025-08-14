@@ -4,11 +4,25 @@ import { Badge } from "@/components/ui/badge";
 
 // Import all service images
 import facialService from "@/assets/facial-service.jpg";
+import classicFacialService from "@/assets/classic-facial-service.jpg";
+import antiAgingFacialService from "@/assets/anti-aging-facial-service.jpg";
+import goldFacialService from "@/assets/gold-facial-service.jpg";
 import hairService from "@/assets/hair-service.jpg";
-import manicureService from "@/assets/manicure-service.jpg";
+import hairCutStyleService from "@/assets/hair-cut-style-service.jpg";
+import hairColorService from "@/assets/hair-color-service.jpg";
+import hairTreatmentService from "@/assets/hair-treatment-service.jpg";
+import basicManicureService from "@/assets/basic-manicure-service.jpg";
+import gelManicureService from "@/assets/gel-manicure-service.jpg";
+import pedicureDeluxeService from "@/assets/pedicure-deluxe-service.jpg";
 import makeupService from "@/assets/makeup-service.jpg";
+import partyMakeupService from "@/assets/party-makeup-service.jpg";
+import engagementMakeupService from "@/assets/engagement-makeup-service.jpg";
 import eyebrowService from "@/assets/eyebrow-service.jpg";
-import spaService from "@/assets/spa-service.jpg";
+import fullFaceThreadingService from "@/assets/full-face-threading-service.jpg";
+import upperLipThreadingService from "@/assets/upper-lip-threading-service.jpg";
+import bodyMassageService from "@/assets/body-massage-service.jpg";
+import hotStoneMassageService from "@/assets/hot-stone-massage-service.jpg";
+import bodyScrubService from "@/assets/body-scrub-service.jpg";
 
 const Services = () => {
   const serviceCategories = [
@@ -20,7 +34,7 @@ const Services = () => {
           description: "Deep cleansing facial with extraction and moisturizing",
           price: "₹1,500",
           duration: "45 mins",
-          image: facialService,
+          image: classicFacialService,
           rating: 5
         },
         {
@@ -28,7 +42,7 @@ const Services = () => {
           description: "Advanced treatment to reduce fine lines and wrinkles",
           price: "₹3,500",
           duration: "75 mins",
-          image: facialService,
+          image: antiAgingFacialService,
           rating: 5
         },
         {
@@ -36,7 +50,7 @@ const Services = () => {
           description: "Luxurious gold leaf treatment for radiant, glowing skin",
           price: "₹5,000",
           duration: "90 mins",
-          image: facialService,
+          image: goldFacialService,
           rating: 5
         }
       ]
@@ -49,7 +63,7 @@ const Services = () => {
           description: "Professional haircut with wash and styling",
           price: "₹800",
           duration: "60 mins",
-          image: hairService,
+          image: hairCutStyleService,
           rating: 5
         },
         {
@@ -57,7 +71,7 @@ const Services = () => {
           description: "Full hair coloring with premium products",
           price: "₹2,500",
           duration: "120 mins",
-          image: hairService,
+          image: hairColorService,
           rating: 5
         },
         {
@@ -65,7 +79,7 @@ const Services = () => {
           description: "Deep conditioning and repair treatment",
           price: "₹1,800",
           duration: "90 mins",
-          image: hairService,
+          image: hairTreatmentService,
           rating: 5
         }
       ]
@@ -78,7 +92,7 @@ const Services = () => {
           description: "Nail shaping, cuticle care, and polish application",
           price: "₹600",
           duration: "45 mins",
-          image: manicureService,
+          image: basicManicureService,
           rating: 5
         },
         {
@@ -86,7 +100,7 @@ const Services = () => {
           description: "Long-lasting gel polish with professional finish",
           price: "₹1,200",
           duration: "60 mins",
-          image: manicureService,
+          image: gelManicureService,
           rating: 5
         },
         {
@@ -94,7 +108,7 @@ const Services = () => {
           description: "Complete foot care with massage and premium polish",
           price: "₹1,000",
           duration: "75 mins",
-          image: manicureService,
+          image: pedicureDeluxeService,
           rating: 5
         }
       ]
@@ -107,7 +121,7 @@ const Services = () => {
           description: "Glamorous makeup for special occasions",
           price: "₹2,500",
           duration: "90 mins",
-          image: makeupService,
+          image: partyMakeupService,
           rating: 5
         },
         {
@@ -123,7 +137,7 @@ const Services = () => {
           description: "Elegant makeup for engagement ceremonies",
           price: "₹4,500",
           duration: "2 hours",
-          image: makeupService,
+          image: engagementMakeupService,
           rating: 5
         }
       ]
@@ -144,7 +158,7 @@ const Services = () => {
           description: "Complete facial hair removal threading",
           price: "₹500",
           duration: "45 mins",
-          image: eyebrowService,
+          image: fullFaceThreadingService,
           rating: 5
         },
         {
@@ -152,7 +166,7 @@ const Services = () => {
           description: "Quick and precise upper lip hair removal",
           price: "₹150",
           duration: "15 mins",
-          image: eyebrowService,
+          image: upperLipThreadingService,
           rating: 5
         }
       ]
@@ -165,7 +179,7 @@ const Services = () => {
           description: "Relaxing full body massage with aromatic oils",
           price: "₹2,000",
           duration: "60 mins",
-          image: spaService,
+          image: bodyMassageService,
           rating: 5
         },
         {
@@ -173,7 +187,7 @@ const Services = () => {
           description: "Therapeutic massage with heated stones",
           price: "₹3,500",
           duration: "90 mins",
-          image: spaService,
+          image: hotStoneMassageService,
           rating: 5
         },
         {
@@ -181,7 +195,7 @@ const Services = () => {
           description: "Exfoliating body treatment for smooth skin",
           price: "₹1,800",
           duration: "45 mins",
-          image: spaService,
+          image: bodyScrubService,
           rating: 5
         }
       ]
