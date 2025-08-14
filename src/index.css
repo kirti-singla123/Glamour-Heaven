@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Luxury Beauty Salon Design System - Warm & Elegant */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm, elegant beauty salon palette */
+    --background: 35 25% 96%;
+    --foreground: 25 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 35 30% 98%;
+    --card-foreground: 25 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 30% 98%;
+    --popover-foreground: 25 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Luxury gold primary */
+    --primary: 38 75% 55%;
+    --primary-foreground: 35 30% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft cream secondary */
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 25 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Warm muted tones */
+    --muted: 35 15% 88%;
+    --muted-foreground: 25 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Elegant accent */
+    --accent: 40 45% 85%;
+    --accent-foreground: 25 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 35 30% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 20% 85%;
+    --input: 35 20% 90%;
+    --ring: 38 75% 55%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Custom beauty salon tokens */
+    --luxury-cream: 35 25% 96%;
+    --warm-beige: 40 20% 92%;
+    --golden-accent: 38 75% 55%;
+    --soft-pink: 15 25% 90%;
+    --sage-green: 120 15% 75%;
+    
+    /* Gradients */
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury-cream)), hsl(var(--warm-beige)));
+    --gradient-golden: linear-gradient(135deg, hsl(var(--golden-accent)), hsl(38 60% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--warm-beige)));
+    
+    /* Shadows */
+    --shadow-luxury: 0 20px 60px -20px hsl(var(--golden-accent) / 0.2);
+    --shadow-soft: 0 10px 30px -10px hsl(25 15% 15% / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--golden-accent) / 0.3);
+    
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-smooth: all 0.3s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
