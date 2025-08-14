@@ -3,80 +3,76 @@ import {
   MapPin, 
   Phone, 
   Mail, 
-  Clock
+  Clock 
 } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
     {
-      icon: <MapPin className="w-6 h-6" />,
+      icon: <MapPin className="w-6 h-6 text-amber-500" />,
       title: "Visit Us",
       details: ["123 Beauty Street", "Fashion District, Mumbai", "Maharashtra 400001"]
     },
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-6 h-6 text-emerald-500" />,
       title: "Call Us",
       details: ["+91 98765 43210", "+91 98765 43211"]
     },
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-6 h-6 text-cyan-500" />,
       title: "Email Us",
       details: ["glamourheaven.com", "appointments@glamourheaven.com"]
     },
     {
-      icon: <Clock className="w-6 h-6" />,
+      icon: <Clock className="w-6 h-6 text-yellow-500" />,
       title: "Opening Hours",
       details: ["Mon - Sat: 9:00 AM - 8:00 PM", "Sunday: 10:00 AM - 6:00 PM"]
     }
   ];
 
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-screen py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Tagline */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-golden bg-clip-text text-transparent">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-yellow-300 to-emerald-400 bg-clip-text text-transparent">
             "Your Beauty, Our Passion"
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Experience the art of beauty and self-care at Glamour Heaven.
           </p>
         </div>
 
         {/* Contact Information */}
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">We’re Here for You</h2>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+            We’re Here for You
+          </h2>
 
-           {/* Bridal packages message */}
-  <div className="text-center mb-8">
-    <p className="text-lg text-gray-700 font-medium">
-      💍 Planning your big day? Ask us about our{" "}
-      <span className="text-pink-600 font-semibold">
-        exclusive bridal packages
-      </span>{" "}
-      and{" "}
-      <span className="text-pink-600 font-semibold">
-        special discounts
-      </span>{" "}
-      just for you!
-    </p>
-  </div>
+          {/* Bridal packages message */}
+          <div className="text-center mb-10">
+            <p className="text-lg text-gray-700 font-medium">
+              💍 Planning your big day? Ask us about our{" "}
+              <span className="text-amber-500 font-semibold">exclusive bridal packages</span> and{" "}
+              <span className="text-emerald-500 font-semibold">special discounts</span> just for you!
+            </p>
+          </div>
 
-          <div className="grid gap-6">
+          <div className="grid gap-6 sm:grid-cols-2">
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
-                className="shadow-soft hover:shadow-luxury transition-all duration-300"
+                className="shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-xl"
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow">
+                    <div className="w-14 h-14 bg-gradient-to-tr from-amber-400 via-yellow-300 to-emerald-400 rounded-full flex items-center justify-center text-white shadow-lg">
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-2">{info.title}</h3>
+                      <h3 className="font-semibold text-lg mb-2 text-gray-800">{info.title}</h3>
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-muted-foreground">
+                        <p key={idx} className="text-gray-600">
                           {detail}
                         </p>
                       ))}
