@@ -18,30 +18,60 @@ function BookingForm() {
   };
 
   return (
-    <div>
-      <h2>Book {serviceName}</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          required
-        />
-        <input
-          type="date"
-          value={form.date}
-          onChange={(e) => setForm({ ...form, date: e.target.value })}
-          required
-        />
-        <input
-          type="time"
-          value={form.time}
-          onChange={(e) => setForm({ ...form, time: e.target.value })}
-          required
-        />
-        <button type="submit">Confirm Booking</button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-white px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 border border-teal-200">
+        <h2 className="text-2xl font-bold text-center text-teal-600 mb-6">
+          Book {serviceName}
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Your Name
+            </label>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              required
+              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Date
+            </label>
+            <input
+              type="date"
+              value={form.date}
+              onChange={(e) => setForm({ ...form, date: e.target.value })}
+              required
+              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Time
+            </label>
+            <input
+              type="time"
+              value={form.time}
+              onChange={(e) => setForm({ ...form, time: e.target.value })}
+              required
+              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-xl shadow-md hover:bg-teal-700 transition"
+          >
+            Confirm Booking
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
