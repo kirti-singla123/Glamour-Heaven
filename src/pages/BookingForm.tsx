@@ -18,14 +18,14 @@ function BookingForm() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white px-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 border border-teal-200">
-        <h2 className="text-2xl font-bold text-center text-teal-600 mb-6">
+    <div className="flex items-center justify-center min-h-screen bg-background px-4">
+      <div className="w-full max-w-md bg-card rounded-2xl shadow-luxury p-8 border border-border/50">
+        <h2 className="text-2xl font-bold text-center text-primary mb-6">
           Book {serviceName}
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Your Name
             </label>
             <input
@@ -34,12 +34,13 @@ function BookingForm() {
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+              className="w-full px-4 py-2 rounded-xl border border-border/50 bg-background text-foreground 
+              focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Date
             </label>
             <input
@@ -47,12 +48,13 @@ function BookingForm() {
               value={form.date}
               onChange={(e) => setForm({ ...form, date: e.target.value })}
               required
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+              className="w-full px-4 py-2 rounded-xl border border-border/50 bg-background text-foreground 
+              focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Time
             </label>
             <input
@@ -60,13 +62,15 @@ function BookingForm() {
               value={form.time}
               onChange={(e) => setForm({ ...form, time: e.target.value })}
               required
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+              className="w-full px-4 py-2 rounded-xl border border-border/50 bg-background text-foreground 
+              focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-xl shadow-md hover:bg-teal-700 transition"
+            className="w-full shadow-soft hover:shadow-glow transition-all duration-300 
+            bg-primary text-primary-foreground font-semibold py-2 px-4 rounded-xl"
           >
             Confirm Booking
           </button>
