@@ -12,10 +12,32 @@ function BookingForm() {
   const { serviceName } = useParams<{ serviceName: string }>();
   const [form, setForm] = useState<FormData>({ name: "", date: "", time: "", phone: "" });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Booking submitted:", { ...form, service: serviceName });
-    alert(`Booking confirmed for ${serviceName}!`);
+
+    const bookingData = { ...form, service: serviceName };
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/bookings/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      if (response.ok) {
+        alert(`Booking confirmed for ${serviceName}!`);
+        setForm({ name: "", date: "", time: "", phone: "" }); // reset form
+      } else {
+        const errorData = await response.json();
+        console.error("Error creating booking:", errorData);
+        alert("Failed to submit booking. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting booking:", error);
+      alert("Failed to submit booking. Please check your connection.");
+    }
   };
 
   return (
