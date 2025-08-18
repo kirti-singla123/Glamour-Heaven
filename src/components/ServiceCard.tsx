@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
@@ -48,10 +49,12 @@ const ServiceCard = ({ title, description, price, duration, image, rating = 5 }:
             <div className="text-xs text-muted-foreground">Starting from</div>
           </div>
         </div>
-        
-        <Button className="w-full shadow-soft hover:shadow-glow transition-all duration-300">
-          Book This Service
-        </Button>
+
+        <Link to={`/book/${service.title}`}>
+  <Button className="w-full shadow-soft hover:shadow-glow transition-all duration-300">
+    Book This Service
+  </Button>
+</Link>
       </CardContent>
     </Card>
   );
