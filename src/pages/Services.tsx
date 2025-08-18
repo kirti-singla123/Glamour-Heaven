@@ -235,10 +235,6 @@ const Services = () => {
               {category.services.map((service, serviceIndex) => (
                 <div key={serviceIndex} className="flex flex-col gap-4">
                   <ServiceCard {...service} />
-                  {/* ✅ Add booking button for each service */}
-                  <Link to={`/book/${encodeURIComponent(service.title)}`}>
-                    <Button className="w-full">Book This Service</Button>
-                  </Link>
                 </div>
               ))}
             </div>
