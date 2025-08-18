@@ -1,6 +1,7 @@
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom"; // ✅ import Link
 
 // Import all service images
 import facialService from "@/assets/facial-service.jpg";
@@ -232,7 +233,13 @@ const Services = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {category.services.map((service, serviceIndex) => (
-                <ServiceCard key={serviceIndex} {...service} />
+                <div key={serviceIndex} className="flex flex-col gap-4">
+                  <ServiceCard {...service} />
+                  {/* ✅ Add booking button for each service */}
+                  <Link to={`/book/${encodeURIComponent(service.title)}`}>
+                    <Button className="w-full">Book This Service</Button>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
