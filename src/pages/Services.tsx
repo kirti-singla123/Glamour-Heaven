@@ -1,7 +1,6 @@
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom"; // ✅ import Link
 
 // Import all service images
 import facialService from "@/assets/facial-service.jpg";
