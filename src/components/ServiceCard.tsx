@@ -50,11 +50,12 @@ const ServiceCard = ({ title, description, price, duration, image, rating = 5 }:
           </div>
         </div>
 
-        <Link to={`/book/${service.title}`}>
-  <Button className="w-full shadow-soft hover:shadow-glow transition-all duration-300">
-    Book This Service
-  </Button>
-</Link>
+        {/* ✅ FIX: use title instead of undefined service */}
+        <Link to={`/book/${title}`}>
+          <Button className="w-full shadow-soft hover:shadow-glow transition-all duration-300">
+            Book This Service
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );
