@@ -41,7 +41,7 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 
 - **Frontend:** React + Tailwind CSS (Netlify)  
 - **Backend:** Django + Django REST Framework (Render)  
-- **Database:** PostgreSQL (Render)  
+- **Database:** SQLite3 
 - **Integration:** REST APIs connecting frontend & backend  
 
 ---
