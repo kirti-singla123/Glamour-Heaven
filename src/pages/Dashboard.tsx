@@ -28,35 +28,44 @@ const Dashboard = () => {
       {bookings.length === 0 ? (
         <p className="text-center text-gray-500 text-lg">No bookings yet.</p>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bookings.map((booking) => (
-            <div
-              key={booking.id}
-              className="bg-white shadow-xl rounded-2xl p-6 border border-[#f0e5c0] hover:shadow-2xl transition"
-            >
-              <h2 className="text-xl font-semibold text-[#b8860b] mb-2">
-                {booking.service}
-              </h2>
-              <div className="space-y-2 text-gray-700">
-                <p>
-                  <span className="font-medium text-[#b8860b]">👤 Name:</span>{" "}
-                  {booking.name}
-                </p>
-                <p>
-                  <span className="font-medium text-[#b8860b]">📞 Phone:</span>{" "}
-                  {booking.phone}
-                </p>
-                <p>
-                  <span className="font-medium text-[#b8860b]">📅 Date:</span>{" "}
-                  {booking.date}
-                </p>
-                <p>
-                  <span className="font-medium text-[#b8860b]">⏰ Time:</span>{" "}
-                  {booking.time}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="overflow-x-auto shadow-2xl rounded-2xl">
+          <table className="min-w-full border border-[#f0e5c0] rounded-2xl overflow-hidden">
+            <thead className="bg-[#b8860b] text-white">
+              <tr>
+                <th className="px-6 py-3 text-left text-lg font-semibold">Service</th>
+                <th className="px-6 py-3 text-left text-lg font-semibold">Name</th>
+                <th className="px-6 py-3 text-left text-lg font-semibold">Phone</th>
+                <th className="px-6 py-3 text-left text-lg font-semibold">Date</th>
+                <th className="px-6 py-3 text-left text-lg font-semibold">Time</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white text-gray-700">
+              {bookings.map((booking, idx) => (
+                <tr
+                  key={booking.id}
+                  className={`hover:bg-[#fffaf0] transition ${
+                    idx % 2 === 0 ? "bg-[#fffcf5]" : "bg-white"
+                  }`}
+                >
+                  <td className="px-6 py-4 border-b border-[#f0e5c0]">
+                    {booking.service}
+                  </td>
+                  <td className="px-6 py-4 border-b border-[#f0e5c0]">
+                    {booking.name}
+                  </td>
+                  <td className="px-6 py-4 border-b border-[#f0e5c0]">
+                    {booking.phone}
+                  </td>
+                  <td className="px-6 py-4 border-b border-[#f0e5c0]">
+                    {booking.date}
+                  </td>
+                  <td className="px-6 py-4 border-b border-[#f0e5c0]">
+                    {booking.time}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
