@@ -8,7 +8,8 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import BookingForm from "./pages/BookingForm"; // ✅ import new page
+import BookingForm from "./pages/BookingForm";
+import Dashboard from "./pages/Dashboard"; // ✅ import the new dashboard page
 
 const queryClient = new QueryClient();
 
@@ -24,9 +25,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
-            {/* ✅ new booking route */}
             <Route path="/book/:serviceName" element={<BookingForm />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/dashboard" element={<Dashboard />} /> {/* ✅ New Dashboard route */}
+            {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
