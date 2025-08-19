@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+GlamourHaven – Service Booking Website
 
-## Project info
+GlamourHaven is a service booking platform that allows customers to book salon/spa services online while enabling staff/admins to manage those bookings through a connected dashboard.
 
-**URL**: https://lovable.dev/projects/34d7635a-6b8b-4675-88c4-0f738fce57d8
+The system is built with a React frontend and a Django backend, seamlessly connected via REST APIs.
 
-## How can I edit this code?
+🌐 Live Links
 
-There are several ways of editing your application.
+Customer Booking Page (for clients):
+https://glamourheaven.netlify.app
 
-**Use Lovable**
+Staff/Admin Dashboard:
+https://glamourheaven.netlify.app/dashboard
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/34d7635a-6b8b-4675-88c4-0f738fce57d8) and start prompting.
+Backend API Root:
+https://glamourheaven-backend.onrender.com/
 
-Changes made via Lovable will be committed automatically to this repo.
+Backend API (Bookings Data):
+https://glamourheaven-backend.onrender.com/api/bookings/
 
-**Use your preferred IDE**
+✨ Features
+For Customers
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Browse and book salon/spa services.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Easy-to-use booking form.
 
-Follow these steps:
+Smooth and modern UI.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+For Staff/Admins
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Dashboard to view all bookings.
 
-# Step 3: Install the necessary dependencies.
-npm i
+Accept or reject bookings with one click.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Add manual bookings if customers come directly.
 
-**Edit a file directly in GitHub**
+Organized booking management with tables and actions.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🛠️ Tech Stack
 
-**Use GitHub Codespaces**
+Frontend: React + Tailwind CSS (Netlify)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Backend: Django + Django REST Framework (Render)
 
-## What technologies are used for this project?
+Database: PostgreSQL (Render)
 
-This project is built with:
+Integration: REST APIs connecting frontend & backend
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/34d7635a-6b8b-4675-88c4-0f738fce57d8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project delivers a complete service booking website, combining a customer-facing platform with a powerful staff dashboard, all powered by APIs.
