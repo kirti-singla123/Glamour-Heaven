@@ -1,89 +1,66 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
-interface Booking {
-  id: number;
-  service: string;
-  name: string;
-  phone: string;
-  date: string;
-  time: string;
-}
-
-const Dashboard = () => {
-  const [bookings, setBookings] = useState<Booking[]>([]);
-
-  useEffect(() => {
-    fetch("https://glamourheaven-backend.onrender.com/api/bookings/")
-      .then((res) => res.json())
-      .then((data) => setBookings(data))
-      .catch((err) => console.error("Error fetching bookings:", err));
-  }, []);
-
-  const handleAction = (id: number, action: "accept" | "reject") => {
-    alert(`Booking #${id} ${action === "accept" ? "accepted ✅" : "rejected ❌"}`);
-    // later: you can call API to update status here
-  };
+const BookingsDashboard = () => {
+  const bookings = [
+    { id: 1, name: "John Doe", service: "Haircut", date: "2025-08-20", status: "Pending" },
+    { id: 2, name: "Sarah Smith", service: "Facial", date: "2025-08-21", status: "Confirmed" },
+    { id: 3, name: "Michael Brown", service: "Massage", date: "2025-08-22", status: "Pending" },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#fffdf7] via-[#fffaf0] to-[#fdf5e6] p-10">
-      <h1 className="text-4xl font-bold text-center mb-10 text-[#b8860b] drop-shadow-lg">
-        ✨ Glamour Heaven Dashboard ✨
-      </h1>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-yellow-50 to-gray-100 p-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">📋 Current Bookings</h1>
 
-      {bookings.length === 0 ? (
-        <p className="text-center text-gray-500 text-lg">No bookings yet.</p>
-      ) : (
-        <div className="overflow-x-auto shadow-2xl rounded-2xl">
-          <table className="min-w-full border border-[#f0e5c0] rounded-2xl overflow-hidden">
-            <thead className="bg-gradient-to-r from-[#b8860b] to-[#daa520] text-white">
-              <tr>
-                <th className="px-6 py-3 text-left text-lg font-semibold">Service</th>
-                <th className="px-6 py-3 text-left text-lg font-semibold">Name</th>
-                <th className="px-6 py-3 text-left text-lg font-semibold">Phone</th>
-                <th className="px-6 py-3 text-left text-lg font-semibold">Date</th>
-                <th className="px-6 py-3 text-left text-lg font-semibold">Time</th>
-                <th className="px-6 py-3 text-center text-lg font-semibold">Action</th>
+      <div className="overflow-hidden rounded-2xl shadow-xl border border-gray-200">
+        <table className="w-full text-left border-collapse">
+          <thead className="bg-gradient-to-r from-yellow-200 to-yellow-300 text-gray-800">
+            <tr>
+              <th className="p-4">#</th>
+              <th className="p-4">Customer</th>
+              <th className="p-4">Service</th>
+              <th className="p-4">Date</th>
+              <th className="p-4">Status</th>
+              <th className="p-4">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings.map((booking, index) => (
+              <tr
+                key={booking.id}
+                className={`${
+                  index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                } hover:bg-yellow-50 transition`}
+              >
+                <td className="p-4 font-medium">{booking.id}</td>
+                <td className="p-4">{booking.name}</td>
+                <td className="p-4">{booking.service}</td>
+                <td className="p-4">{booking.date}</td>
+                <td className="p-4">
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                      booking.status === "Pending"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : "bg-green-100 text-green-700"
+                    }`}
+                  >
+                    {booking.status}
+                  </span>
+                </td>
+                <td className="p-4 flex gap-2">
+                  <button className="px-4 py-2 rounded-lg bg-green-500 text-white hover:bg-green-600 shadow-md">
+                    Accept
+                  </button>
+                  <button className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-md">
+                    Reject
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {bookings.map((booking, idx) => (
-                <tr
-                  key={booking.id}
-                  className={`transition-all duration-300 ${
-                    idx % 2 === 0 ? "bg-[#fffcf5]" : "bg-white"
-                  } hover:bg-[#fff8dc]`}
-                >
-                  <td className="px-6 py-4 border-b border-[#f0e5c0] font-medium text-[#444]">
-                    {booking.service}
-                  </td>
-                  <td className="px-6 py-4 border-b border-[#f0e5c0]">{booking.name}</td>
-                  <td className="px-6 py-4 border-b border-[#f0e5c0]">{booking.phone}</td>
-                  <td className="px-6 py-4 border-b border-[#f0e5c0]">{booking.date}</td>
-                  <td className="px-6 py-4 border-b border-[#f0e5c0]">{booking.time}</td>
-                  <td className="px-6 py-4 border-b border-[#f0e5c0] text-center">
-                    <div className="flex justify-center gap-3">
-                      <button
-                        onClick={() => handleAction(booking.id, "accept")}
-                        className="px-4 py-2 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md transition"
-                      >
-                        ✅ Accept
-                      </button>
-                      <button
-                        onClick={() => handleAction(booking.id, "reject")}
-                        className="px-4 py-2 rounded-full bg-red-500 hover:bg-red-600 text-white font-semibold shadow-md transition"
-                      >
-                        ❌ Reject
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default BookingsDashboard;
