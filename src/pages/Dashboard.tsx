@@ -2,76 +2,65 @@ import { useEffect, useState } from "react";
 
 interface Booking {
   id: number;
+  service: string;
   name: string;
   phone: string;
   date: string;
   time: string;
 }
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
 
   useEffect(() => {
     fetch("https://glamourheaven-backend.onrender.com/api/bookings/")
       .then((res) => res.json())
-      .then((data) => setBookings(data));
+      .then((data) => setBookings(data))
+      .catch((err) => console.error("Error fetching bookings:", err));
   }, []);
 
-  const today = new Date().toISOString().split("T")[0];
-  const todayBookings = bookings.filter((b) => b.date === today);
-
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      {/* Heading */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">📊 Dashboard</h1>
+    <div className="min-h-screen bg-gradient-to-br from-white via-[#fffdf5] to-[#fef9e7] p-10">
+      <h1 className="text-4xl font-bold text-center mb-10 text-[#b8860b]">
+        ✨ Glamour Heaven Dashboard ✨
+      </h1>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-lg font-semibold text-gray-600">Total Bookings</h2>
-          <p className="text-2xl font-bold text-indigo-600">{bookings.length}</p>
+      {bookings.length === 0 ? (
+        <p className="text-center text-gray-500 text-lg">No bookings yet.</p>
+      ) : (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bookings.map((booking) => (
+            <div
+              key={booking.id}
+              className="bg-white shadow-xl rounded-2xl p-6 border border-[#f0e5c0] hover:shadow-2xl transition"
+            >
+              <h2 className="text-xl font-semibold text-[#b8860b] mb-2">
+                {booking.service}
+              </h2>
+              <div className="space-y-2 text-gray-700">
+                <p>
+                  <span className="font-medium text-[#b8860b]">👤 Name:</span>{" "}
+                  {booking.name}
+                </p>
+                <p>
+                  <span className="font-medium text-[#b8860b]">📞 Phone:</span>{" "}
+                  {booking.phone}
+                </p>
+                <p>
+                  <span className="font-medium text-[#b8860b]">📅 Date:</span>{" "}
+                  {booking.date}
+                </p>
+                <p>
+                  <span className="font-medium text-[#b8860b]">⏰ Time:</span>{" "}
+                  {booking.time}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-lg font-semibold text-gray-600">Today’s Bookings</h2>
-          <p className="text-2xl font-bold text-green-600">{todayBookings.length}</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-lg font-semibold text-gray-600">Upcoming</h2>
-          <p className="text-2xl font-bold text-purple-600">
-            {bookings.filter((b) => b.date > today).length}
-          </p>
-        </div>
-      </div>
-
-      {/* Table */}
-      <div className="bg-white rounded-2xl shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">📋 Recent Bookings</h2>
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="p-3">ID</th>
-              <th className="p-3">Name</th>
-              <th className="p-3">Phone</th>
-              <th className="p-3">Date</th>
-              <th className="p-3">Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookings.map((b) => (
-              <tr
-                key={b.id}
-                className="hover:bg-gray-50 transition border-b last:border-none"
-              >
-                <td className="p-3">{b.id}</td>
-                <td className="p-3">{b.name}</td>
-                <td className="p-3">{b.phone}</td>
-                <td className="p-3">{b.date}</td>
-                <td className="p-3">{b.time}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      )}
     </div>
   );
-}
+};
+
+export default Dashboard;
