@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from "react";
 
+interface Booking {
+  id: number;
+  name: string;
+  phone: string;
+  date: string;
+  time: string;
+  service: string;
+  price?: string;
+  status?: string;
+}
+
 export default function Dashboard() {
-  const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
   const [form, setForm] = useState({
     name: "",
     phone: "",
     date: "",
     time: "",
-    service: ""
+    service: "",
+    price: "",
   });
 
   // Fetch bookings
@@ -19,12 +31,12 @@ export default function Dashboard() {
   }, []);
 
   // Handle form changes
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   // Add booking
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await fetch(
       "https://glamourheaven-backend.onrender.com/api/bookings/",
@@ -37,20 +49,33 @@ export default function Dashboard() {
     if (res.ok) {
       const newBooking = await res.json();
       setBookings([...bookings, newBooking]);
-      setForm({ name: "", phone: "", date: "", time: "", service: "" });
+      setForm({ name: "", phone: "", date: "", time: "", service: "", price: "" });
     }
+  };
+
+  // Handle Accept/Reject
+  const handleBookingStatus = (id: number, action: "accept" | "reject") => {
+    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/${action}/`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert(`WhatsApp message sent! SID: ${data.sid}`);
+        // Update local state to reflect new status
+        setBookings((prev) =>
+          prev.map((b) => (b.id === id ? { ...b, status: action } : b))
+        );
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 p-8 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Soft circles */}
         <div className="absolute top-10 left-10 w-40 h-40 bg-yellow-200 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute bottom-20 right-20 w-60 h-60 bg-pink-200 rounded-full blur-3xl opacity-20"></div>
         <div className="absolute top-40 right-40 w-32 h-32 bg-yellow-400 rounded-full blur-2xl opacity-25"></div>
-
-        {/* Traffic line effect */}
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-yellow-300/40 via-pink-300/30 to-yellow-200/40 transform -skew-y-6"></div>
       </div>
 
@@ -71,25 +96,32 @@ export default function Dashboard() {
                 <th className="p-3 text-left">Date</th>
                 <th className="p-3 text-left">Time</th>
                 <th className="p-3 text-left">Service</th>
+                <th className="p-3 text-left">Price</th>
+                <th className="p-3 text-left">Status</th>
                 <th className="p-3 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
-              {bookings.map((b, i) => (
-                <tr
-                  key={i}
-                  className="border-b hover:bg-yellow-50 transition-colors"
-                >
+              {bookings.map((b) => (
+                <tr key={b.id} className="border-b hover:bg-yellow-50 transition-colors">
                   <td className="p-3">{b.name}</td>
                   <td className="p-3">{b.phone}</td>
                   <td className="p-3">{b.date}</td>
                   <td className="p-3">{b.time}</td>
                   <td className="p-3">{b.service}</td>
+                  <td className="p-3">{b.price}</td>
+                  <td className="p-3">{b.status || "pending"}</td>
                   <td className="p-3 text-center">
-                    <button className="bg-green-500 text-white px-3 py-1 rounded-lg mr-2 hover:bg-green-600">
+                    <button
+                      className="bg-green-500 text-white px-3 py-1 rounded-lg mr-2 hover:bg-green-600"
+                      onClick={() => handleBookingStatus(b.id, "accept")}
+                    >
                       Accept
                     </button>
-                    <button className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600">
+                    <button
+                      className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
+                      onClick={() => handleBookingStatus(b.id, "reject")}
+                    >
                       Reject
                     </button>
                   </td>
@@ -101,9 +133,7 @@ export default function Dashboard() {
 
         {/* Add Booking Form */}
         <div className="bg-white shadow-xl rounded-2xl p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Add Booking
-          </h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Add Booking</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
@@ -145,6 +175,15 @@ export default function Dashboard() {
               value={form.service}
               onChange={handleChange}
               placeholder="Service"
+              className="w-full border rounded-lg px-3 py-2"
+              required
+            />
+            <input
+              type="text"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+              placeholder="Price"
               className="w-full border rounded-lg px-3 py-2"
               required
             />
