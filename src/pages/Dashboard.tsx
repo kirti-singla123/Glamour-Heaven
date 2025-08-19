@@ -1,5 +1,4 @@
 import React from "react";
-import { FaHome, FaUser, FaCog, FaBell, FaUserCircle } from "react-icons/fa";
 import {
   LineChart,
   Line,
@@ -7,9 +6,6 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  BarChart,
-  Bar,
-  Legend,
 } from "recharts";
 
 interface CardData {
@@ -46,9 +42,9 @@ const Dashboard: React.FC = () => {
       <div style={{ width: "220px", backgroundColor: "#1e293b", color: "white", padding: "20px" }}>
         <h2>My Dashboard</h2>
         <ul style={{ listStyle: "none", padding: 0 }}>
-          <li style={{ margin: "20px 0", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}><FaHome /> Home</li>
-          <li style={{ margin: "20px 0", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}><FaUser /> Users</li>
-          <li style={{ margin: "20px 0", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}><FaCog /> Settings</li>
+          <li style={{ margin: "20px 0", cursor: "pointer" }}>🏠 Home</li>
+          <li style={{ margin: "20px 0", cursor: "pointer" }}>👤 Users</li>
+          <li style={{ margin: "20px 0", cursor: "pointer" }}>⚙️ Settings</li>
         </ul>
       </div>
 
@@ -58,8 +54,8 @@ const Dashboard: React.FC = () => {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "60px", backgroundColor: "#f1f5f9", padding: "0 20px", borderRadius: "10px" }}>
           <h3>Dashboard</h3>
           <div style={{ display: "flex", gap: "15px", fontSize: "1.2rem" }}>
-            <FaBell />
-            <FaUserCircle />
+            🔔
+            👤
           </div>
         </div>
 
