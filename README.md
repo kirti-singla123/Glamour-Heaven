@@ -33,7 +33,8 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 - Dashboard to view all bookings.  
 - Accept or reject bookings with one click.  
 - Add manual bookings if customers come directly.  
-- Organized booking management with tables and actions.  
+- Organized booking management with tables and actions.
+- WhatsApp notifications: Bookings accepted or rejected automatically send messages to customers using Twilio API. 
 
 ---
 
@@ -42,7 +43,8 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 - **Frontend:** React + Tailwind CSS (Netlify)  
 - **Backend:** Django + Django REST Framework (Render)  
 - **Database:** SQLite3 
-- **Integration:** REST APIs connecting frontend & backend  
+- **Integration:** REST APIs connecting frontend & backend
+- **Messaging:** Twilio API for WhatsApp notifications
 
 ---
 
