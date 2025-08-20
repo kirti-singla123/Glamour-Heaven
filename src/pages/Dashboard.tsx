@@ -95,7 +95,8 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-pink-50 p-8 relative overflow-hidden">
+
       {/* Title */}
       <h1 className="text-5xl font-extrabold text-yellow-700 text-center mb-12 drop-shadow-md">
         ✨ Glamour Heaven Dashboard ✨
