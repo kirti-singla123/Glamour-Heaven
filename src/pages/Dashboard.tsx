@@ -57,26 +57,29 @@ export default function Dashboard() {
       method: "POST",
     })
       .then((res) => res.json())
-      .then((data) => {
-        alert(`WhatsApp message sent! SID: ${data.sid}`);
-        // Update local state to reflect new status
+      .then(() => {
         setBookings((prev) =>
-          prev.map((b) => (b.id === id ? { ...b, status: action } : b))
+          prev.map((b) =>
+            b.id === id ? { ...b, status: action === "accept" ? "accepted" : "rejected" } : b
+          )
         );
+      })
+      .catch((err) => console.error(err));
+  };
+
+  // Handle Delete
+  const handleDelete = (id: number) => {
+    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setBookings((prev) => prev.filter((b) => b.id !== id));
       })
       .catch((err) => console.error(err));
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 p-8 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-40 h-40 bg-yellow-200 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-20 right-20 w-60 h-60 bg-pink-200 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute top-40 right-40 w-32 h-32 bg-yellow-400 rounded-full blur-2xl opacity-25"></div>
-        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-yellow-300/40 via-pink-300/30 to-yellow-200/40 transform -skew-y-6"></div>
-      </div>
-
       {/* Title */}
       <h1 className="relative text-4xl font-bold text-yellow-700 text-center mb-12">
         Glamour Heaven Dashboard
@@ -107,9 +110,9 @@ export default function Dashboard() {
                   <td className="p-3">{b.time}</td>
                   <td className="p-3">{b.service}</td>
                   <td className="p-3">{b.status || "pending"}</td>
-                  <td className="p-3 text-center">
+                  <td className="p-3 text-center space-x-2">
                     <button
-                      className="bg-green-500 text-white px-3 py-1 rounded-lg mr-2 hover:bg-green-600"
+                      className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600"
                       onClick={() => handleBookingStatus(b.id, "accept")}
                     >
                       Accept
@@ -119,6 +122,12 @@ export default function Dashboard() {
                       onClick={() => handleBookingStatus(b.id, "reject")}
                     >
                       Reject
+                    </button>
+                    <button
+                      className="bg-gray-500 text-white px-3 py-1 rounded-lg hover:bg-gray-600"
+                      onClick={() => handleDelete(b.id)}
+                    >
+                      Delete
                     </button>
                   </td>
                 </tr>
