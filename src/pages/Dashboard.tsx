@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { allServices } from "@/utils/servicesList";
 
 interface Booking {
   id: number;
@@ -151,63 +152,70 @@ export default function Dashboard() {
         </div>
 
         {/* Add Booking Form */}
-        <div className="bg-white shadow-xl rounded-2xl p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Add Booking
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Customer Name"
-              className="w-full border rounded-lg px-3 py-2"
-              required
-            />
-            <input
-              type="text"
-              name="phone"
-              value={form.phone}
-              onChange={handleChange}
-              placeholder="Phone Number"
-              className="w-full border rounded-lg px-3 py-2"
-              required
-            />
-            <input
-              type="date"
-              name="date"
-              value={form.date}
-              onChange={handleChange}
-              className="w-full border rounded-lg px-3 py-2"
-              required
-            />
-            <input
-              type="time"
-              name="time"
-              value={form.time}
-              onChange={handleChange}
-              className="w-full border rounded-lg px-3 py-2"
-              required
-            />
-            <input
-              type="text"
-              name="service"
-              value={form.service}
-              onChange={handleChange}
-              placeholder="Service"
-              className="w-full border rounded-lg px-3 py-2"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-yellow-500 text-white px-4 py-2 rounded-lg w-full hover:bg-yellow-600"
-            >
-              Add Booking
-            </button>
-          </form>
-        </div>
-      </div>
+<div className="bg-white shadow-xl rounded-2xl p-6">
+  <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+    Add Booking
+  </h2>
+  <form onSubmit={handleSubmit} className="space-y-4">
+    <input
+      type="text"
+      name="name"
+      value={form.name}
+      onChange={handleChange}
+      placeholder="Customer Name"
+      className="w-full border rounded-lg px-3 py-2"
+      required
+    />
+    <input
+      type="text"
+      name="phone"
+      value={form.phone}
+      onChange={handleChange}
+      placeholder="Phone Number"
+      className="w-full border rounded-lg px-3 py-2"
+      required
+    />
+    <input
+      type="date"
+      name="date"
+      value={form.date}
+      onChange={handleChange}
+      className="w-full border rounded-lg px-3 py-2"
+      required
+    />
+    <input
+      type="time"
+      name="time"
+      value={form.time}
+      onChange={handleChange}
+      className="w-full border rounded-lg px-3 py-2"
+      required
+    />
+
+    {/* 👇 Dropdown for Services */}
+    <div>
+      <label className="block mb-2 text-sm font-medium">Select Service</label>
+      <select
+        name="service"
+        value={form.service}
+        onChange={handleChange}
+        className="w-full border rounded-lg px-3 py-2"
+        required
+      >
+        <option value="">-- Select a service --</option>
+        {allServices.map((service, index) => (
+          <option key={index} value={service}>
+            {service}
+          </option>
+        ))}
+      </select>
     </div>
-  );
-}
+
+    <button
+      type="submit"
+      className="bg-yellow-500 text-white px-4 py-2 rounded-lg w-full hover:bg-yellow-600"
+    >
+      Add Booking
+    </button>
+  </form>
+</div>
