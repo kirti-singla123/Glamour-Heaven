@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { allServices } from "@/utils/services"; // 👈 list of all services
 
 interface Booking {
   id: number;
@@ -20,6 +19,20 @@ export default function Dashboard() {
     time: "",
     service: "",
   });
+
+  // 👇 All Services list here
+  const allServices: string[] = [
+    "Hair Cut",
+    "Hair Color",
+    "Facial",
+    "Manicure",
+    "Pedicure",
+    "Makeup",
+    "Waxing",
+    "Threading",
+    "Spa",
+    "Bridal Package",
+  ];
 
   // Fetch bookings
   useEffect(() => {
