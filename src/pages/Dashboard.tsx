@@ -95,90 +95,99 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 p-8">
       {/* Title */}
-      <h1 className="relative text-4xl font-bold text-yellow-700 text-center mb-12">
-        Glamour Heaven Dashboard
+      <h1 className="text-5xl font-extrabold text-yellow-700 text-center mb-12 drop-shadow-md">
+        ✨ Glamour Heaven Dashboard ✨
       </h1>
 
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Bookings Table */}
-        <div className="bg-white shadow-xl rounded-2xl p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Bookings</h2>
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-yellow-100 text-gray-700">
-                <th className="p-3 text-left">Name</th>
-                <th className="p-3 text-left">Phone</th>
-                <th className="p-3 text-left">Date</th>
-                <th className="p-3 text-left">Time</th>
-                <th className="p-3 text-left">Service</th>
-                <th className="p-3 text-center">State</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bookings.map((b) => (
-                <tr
-                  key={b.id}
-                  className="border-b hover:bg-yellow-50 transition-colors"
-                >
-                  <td className="p-3">{b.name}</td>
-                  <td className="p-3">{b.phone}</td>
-                  <td className="p-3">{b.date}</td>
-                  <td className="p-3">{b.time}</td>
-                  <td className="p-3">{b.service}</td>
-                  <td className="p-3 text-center space-x-2">
-                    {/* Accept */}
-                    <button
-                      className={`px-3 py-1 rounded-lg text-white ${
-                        b.status === "accepted"
-                          ? "bg-green-700"
-                          : "bg-green-500 hover:bg-green-600"
-                      }`}
-                      onClick={() => handleStatusChange(b.id, "accepted")}
-                    >
-                      {b.status === "accepted" ? "Accepted" : "Accept"}
-                    </button>
-
-                    {/* Reject */}
-                    <button
-                      className={`px-3 py-1 rounded-lg text-white ${
-                        b.status === "rejected"
-                          ? "bg-red-700"
-                          : "bg-red-500 hover:bg-red-600"
-                      }`}
-                      onClick={() => handleStatusChange(b.id, "rejected")}
-                    >
-                      {b.status === "rejected" ? "Rejected" : "Reject"}
-                    </button>
-
-                    {/* Delete */}
-                    <button
-                      className="bg-gray-500 text-white px-3 py-1 rounded-lg hover:bg-gray-600"
-                      onClick={() => handleDelete(b.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
+        <div className="bg-white shadow-2xl rounded-3xl p-6 border border-yellow-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b pb-3">
+            📋 Current Bookings
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="bg-yellow-200 text-gray-800 font-semibold">
+                  <th className="p-3 text-left">Name</th>
+                  <th className="p-3 text-left">Phone</th>
+                  <th className="p-3 text-left">Date</th>
+                  <th className="p-3 text-left">Time</th>
+                  <th className="p-3 text-left">Service</th>
+                  <th className="p-3 text-center">Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {bookings.map((b) => (
+                  <tr
+                    key={b.id}
+                    className="border-b hover:bg-yellow-50 transition-all"
+                  >
+                    <td className="p-3 font-medium">{b.name}</td>
+                    <td className="p-3">{b.phone}</td>
+                    <td className="p-3">{b.date}</td>
+                    <td className="p-3">{b.time}</td>
+                    <td className="p-3">{b.service}</td>
+                    <td className="p-3 text-center space-x-2">
+                      {/* Accept */}
+                      <button
+                        className={`px-3 py-1.5 rounded-xl text-white shadow ${
+                          b.status === "accepted"
+                            ? "bg-green-600"
+                            : "bg-green-500 hover:bg-green-600"
+                        }`}
+                        onClick={() => handleStatusChange(b.id, "accepted")}
+                      >
+                        {b.status === "accepted" ? "✔ Accepted" : "Accept"}
+                      </button>
+
+                      {/* Reject */}
+                      <button
+                        className={`px-3 py-1.5 rounded-xl text-white shadow ${
+                          b.status === "rejected"
+                            ? "bg-red-600"
+                            : "bg-red-500 hover:bg-red-600"
+                        }`}
+                        onClick={() => handleStatusChange(b.id, "rejected")}
+                      >
+                        {b.status === "rejected" ? "✘ Rejected" : "Reject"}
+                      </button>
+
+                      {/* Delete */}
+                      <button
+                        className="bg-gray-500 text-white px-3 py-1.5 rounded-xl shadow hover:bg-gray-600"
+                        onClick={() => handleDelete(b.id)}
+                      >
+                        🗑 Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {bookings.length === 0 && (
+              <p className="text-center text-gray-500 py-6">
+                No bookings available yet.
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Add Booking Form */}
-        <div className="bg-white shadow-xl rounded-2xl p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Add Booking
+        <div className="bg-white shadow-2xl rounded-3xl p-6 border border-yellow-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b pb-3">
+            ➕ Add New Booking
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="Customer Name"
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-xl px-4 py-3 shadow-sm focus:ring-2 focus:ring-yellow-400 outline-none"
               required
             />
             <input
@@ -187,7 +196,7 @@ export default function Dashboard() {
               value={form.phone}
               onChange={handleChange}
               placeholder="Phone Number"
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-xl px-4 py-3 shadow-sm focus:ring-2 focus:ring-yellow-400 outline-none"
               required
             />
             <input
@@ -195,7 +204,7 @@ export default function Dashboard() {
               name="date"
               value={form.date}
               onChange={handleChange}
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-xl px-4 py-3 shadow-sm focus:ring-2 focus:ring-yellow-400 outline-none"
               required
             />
             <input
@@ -203,34 +212,31 @@ export default function Dashboard() {
               name="time"
               value={form.time}
               onChange={handleChange}
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-xl px-4 py-3 shadow-sm focus:ring-2 focus:ring-yellow-400 outline-none"
               required
             />
 
             {/* Dropdown for Services */}
-            <div>
-          
-              <select
-                name="service"
-                value={form.service}
-                onChange={handleChange}
-                className="w-full border rounded-lg px-3 py-2"
-                required
-              >
-                <option value="">-- Select a service --</option>
-                {allServices.map((service, index) => (
-                  <option key={index} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <select
+              name="service"
+              value={form.service}
+              onChange={handleChange}
+              className="w-full border rounded-xl px-4 py-3 shadow-sm focus:ring-2 focus:ring-yellow-400 outline-none"
+              required
+            >
+              <option value="">-- Select a service --</option>
+              {allServices.map((service, index) => (
+                <option key={index} value={service}>
+                  {service}
+                </option>
+              ))}
+            </select>
 
             <button
               type="submit"
-              className="bg-yellow-500 text-white px-4 py-2 rounded-lg w-full hover:bg-yellow-600"
+              className="bg-yellow-500 text-white px-6 py-3 rounded-xl w-full font-semibold text-lg shadow-md hover:bg-yellow-600 transition-all"
             >
-              Add Booking
+              ➕ Add Booking
             </button>
           </form>
         </div>
