@@ -7,7 +7,6 @@ interface Booking {
   date: string;
   time: string;
   service: string;
-  price?: string;
   status?: string;
 }
 
@@ -19,7 +18,6 @@ export default function Dashboard() {
     date: "",
     time: "",
     service: "",
-    price: "",
   });
 
   // Fetch bookings
@@ -49,7 +47,7 @@ export default function Dashboard() {
     if (res.ok) {
       const newBooking = await res.json();
       setBookings([...bookings, newBooking]);
-      setForm({ name: "", phone: "", date: "", time: "", service: "", price: "" });
+      setForm({ name: "", phone: "", date: "", time: "", service: "" });
     }
   };
 
@@ -96,7 +94,6 @@ export default function Dashboard() {
                 <th className="p-3 text-left">Date</th>
                 <th className="p-3 text-left">Time</th>
                 <th className="p-3 text-left">Service</th>
-                <th className="p-3 text-left">Price</th>
                 <th className="p-3 text-left">Status</th>
                 <th className="p-3 text-center">Action</th>
               </tr>
@@ -109,7 +106,6 @@ export default function Dashboard() {
                   <td className="p-3">{b.date}</td>
                   <td className="p-3">{b.time}</td>
                   <td className="p-3">{b.service}</td>
-                  <td className="p-3">{b.price}</td>
                   <td className="p-3">{b.status || "pending"}</td>
                   <td className="p-3 text-center">
                     <button
@@ -175,15 +171,6 @@ export default function Dashboard() {
               value={form.service}
               onChange={handleChange}
               placeholder="Service"
-              className="w-full border rounded-lg px-3 py-2"
-              required
-            />
-            <input
-              type="text"
-              name="price"
-              value={form.price}
-              onChange={handleChange}
-              placeholder="Price"
               className="w-full border rounded-lg px-3 py-2"
               required
             />
