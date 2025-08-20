@@ -51,17 +51,17 @@ export default function Dashboard() {
     }
   };
 
-  // Handle Accept/Reject
-  const handleBookingStatus = (id: number, action: "accept" | "reject") => {
-    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/${action}/`, {
-      method: "POST",
+  // Handle Status Update (Accept or Reject)
+  const handleStatusUpdate = (id: number, status: "accepted" | "rejected") => {
+    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status }),
     })
       .then((res) => res.json())
       .then(() => {
         setBookings((prev) =>
-          prev.map((b) =>
-            b.id === id ? { ...b, status: action === "accept" ? "accepted" : "rejected" } : b
-          )
+          prev.map((b) => (b.id === id ? { ...b, status } : b))
         );
       })
       .catch((err) => console.error(err));
@@ -103,7 +103,10 @@ export default function Dashboard() {
             </thead>
             <tbody>
               {bookings.map((b) => (
-                <tr key={b.id} className="border-b hover:bg-yellow-50 transition-colors">
+                <tr
+                  key={b.id}
+                  className="border-b hover:bg-yellow-50 transition-colors"
+                >
                   <td className="p-3">{b.name}</td>
                   <td className="p-3">{b.phone}</td>
                   <td className="p-3">{b.date}</td>
@@ -113,13 +116,13 @@ export default function Dashboard() {
                   <td className="p-3 text-center space-x-2">
                     <button
                       className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600"
-                      onClick={() => handleBookingStatus(b.id, "accept")}
+                      onClick={() => handleStatusUpdate(b.id, "accepted")}
                     >
                       Accept
                     </button>
                     <button
                       className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
-                      onClick={() => handleBookingStatus(b.id, "reject")}
+                      onClick={() => handleStatusUpdate(b.id, "rejected")}
                     >
                       Reject
                     </button>
@@ -138,7 +141,9 @@ export default function Dashboard() {
 
         {/* Add Booking Form */}
         <div className="bg-white shadow-xl rounded-2xl p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Add Booking</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Add Booking
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
