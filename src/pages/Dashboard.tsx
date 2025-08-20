@@ -209,9 +209,7 @@ export default function Dashboard() {
 
             {/* Dropdown for Services */}
             <div>
-              <label className="block mb-2 text-sm font-medium">
-                Select Service
-              </label>
+          
               <select
                 name="service"
                 value={form.service}
