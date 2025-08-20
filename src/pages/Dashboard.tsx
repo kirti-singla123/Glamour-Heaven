@@ -51,13 +51,14 @@ export default function Dashboard() {
     }
   };
 
-  // Handle Status Update (Accept or Reject)
-  const handleStatusUpdate = (id: number, status: "accepted" | "rejected") => {
-    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status }),
-    })
+  // Handle Status Change (accept/reject)
+  const handleStatusChange = (id: number, status: "accepted" | "rejected") => {
+    fetch(
+      `https://glamourheaven-backend.onrender.com/api/bookings/${id}/${status}/`,
+      {
+        method: "POST",
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         setBookings((prev) =>
@@ -114,18 +115,31 @@ export default function Dashboard() {
                   <td className="p-3">{b.service}</td>
                   <td className="p-3">{b.status || "pending"}</td>
                   <td className="p-3 text-center space-x-2">
+                    {/* Accept Button */}
                     <button
-                      className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600"
-                      onClick={() => handleStatusUpdate(b.id, "accepted")}
+                      className={`px-3 py-1 rounded-lg text-white ${
+                        b.status === "accepted"
+                          ? "bg-green-700"
+                          : "bg-green-500 hover:bg-green-600"
+                      }`}
+                      onClick={() => handleStatusChange(b.id, "accepted")}
                     >
-                      Accept
+                      {b.status === "accepted" ? "Accepted" : "Accept"}
                     </button>
+
+                    {/* Reject Button */}
                     <button
-                      className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
-                      onClick={() => handleStatusUpdate(b.id, "rejected")}
+                      className={`px-3 py-1 rounded-lg text-white ${
+                        b.status === "rejected"
+                          ? "bg-red-700"
+                          : "bg-red-500 hover:bg-red-600"
+                      }`}
+                      onClick={() => handleStatusChange(b.id, "rejected")}
                     >
-                      Reject
+                      {b.status === "rejected" ? "Rejected" : "Reject"}
                     </button>
+
+                    {/* Delete Button */}
                     <button
                       className="bg-gray-500 text-white px-3 py-1 rounded-lg hover:bg-gray-600"
                       onClick={() => handleDelete(b.id)}
