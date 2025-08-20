@@ -51,7 +51,7 @@ export default function Dashboard() {
     }
   };
 
-  // Handle Status Change (accept/reject)
+  // Handle Accept / Reject
   const handleStatusChange = (id: number, status: "accepted" | "rejected") => {
     fetch(
       `https://glamourheaven-backend.onrender.com/api/bookings/${id}/${status}/`,
@@ -59,7 +59,6 @@ export default function Dashboard() {
         method: "POST",
       }
     )
-      .then((res) => res.json())
       .then(() => {
         setBookings((prev) =>
           prev.map((b) => (b.id === id ? { ...b, status } : b))
@@ -98,8 +97,7 @@ export default function Dashboard() {
                 <th className="p-3 text-left">Date</th>
                 <th className="p-3 text-left">Time</th>
                 <th className="p-3 text-left">Service</th>
-                <th className="p-3 text-left">Status</th>
-                <th className="p-3 text-center">Action</th>
+                <th className="p-3 text-center">State</th>
               </tr>
             </thead>
             <tbody>
@@ -113,9 +111,8 @@ export default function Dashboard() {
                   <td className="p-3">{b.date}</td>
                   <td className="p-3">{b.time}</td>
                   <td className="p-3">{b.service}</td>
-                  <td className="p-3">{b.status || "pending"}</td>
                   <td className="p-3 text-center space-x-2">
-                    {/* Accept Button */}
+                    {/* Accept */}
                     <button
                       className={`px-3 py-1 rounded-lg text-white ${
                         b.status === "accepted"
@@ -127,7 +124,7 @@ export default function Dashboard() {
                       {b.status === "accepted" ? "Accepted" : "Accept"}
                     </button>
 
-                    {/* Reject Button */}
+                    {/* Reject */}
                     <button
                       className={`px-3 py-1 rounded-lg text-white ${
                         b.status === "rejected"
@@ -139,7 +136,7 @@ export default function Dashboard() {
                       {b.status === "rejected" ? "Rejected" : "Reject"}
                     </button>
 
-                    {/* Delete Button */}
+                    {/* Delete */}
                     <button
                       className="bg-gray-500 text-white px-3 py-1 rounded-lg hover:bg-gray-600"
                       onClick={() => handleDelete(b.id)}
