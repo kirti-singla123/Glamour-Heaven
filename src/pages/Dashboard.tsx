@@ -71,17 +71,18 @@ export default function Dashboard() {
   };
 
   const handleStatusChange = (id: number, status: "accepted" | "rejected") => {
-    fetch(
-      `https://glamourheaven-backend.onrender.com/api/bookings/${id}/${status}/`,
-      { method: "POST" }
-    )
-      .then(() => {
-        setBookings((prev) =>
-          prev.map((b) => (b.id === id ? { ...b, status } : b))
-        );
-      })
-      .catch((err) => console.error(err));
-  };
+  fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/${status}/`, {
+    method: "POST",
+  })
+    .then(() => {
+      // ✅ Re-fetch updated bookings from backend after change
+      fetch("https://glamourheaven-backend.onrender.com/api/bookings/")
+        .then((res) => res.json())
+        .then((data) => setBookings(data))
+        .catch((err) => console.error(err));
+    })
+    .catch((err) => console.error(err));
+};
 
   const handleDelete = (id: number) => {
     fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/`, {
