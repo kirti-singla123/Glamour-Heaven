@@ -226,7 +226,7 @@ export default function Dashboard() {
                 </span>
               )}
               {!b.status && (
-                <span className="bg-yellow-300 text-yellow-600 px-3 py-1 rounded-xl text-sm">
+                <span className="bg-yellow-200 text-yellow-600 px-3 py-1 rounded-xl text-sm">
                   Pending
                 </span>
               )}
@@ -235,10 +235,7 @@ export default function Dashboard() {
             <p className="text-gray-500 text-sm">{b.date} at {b.time}</p>
             <p className="text-gray-500 text-sm">{b.phone}</p>
             <div className="flex justify-between items-center mt-4">
-              <div className="text-orange-600 font-semibold">
-                ${b.price || 0}
-              </div>
-              <div className="flex gap-2">
+                <div className="flex gap-2">
                 <button
                   className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600"
                   onClick={() => handleStatusChange(b.id, "accepted")}
