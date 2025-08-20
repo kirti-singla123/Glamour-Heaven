@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { allServices } from "@/utils/servicesList"; // 👈 list of all services
+import { allServices } from "@/utils/services"; // 👈 list of all services
 
 interface Booking {
   id: number;
