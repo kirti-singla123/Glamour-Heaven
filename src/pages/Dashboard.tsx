@@ -106,7 +106,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="text-center mb-10">
         <div className="text-3xl font-bold text-orange-600 mb-2">
-          ✨ Manage your appointments with elegance and style ✨
+          ✨ Glamour Heaven Dashboard ✨
         </div>
       </div>
 
@@ -226,7 +226,7 @@ export default function Dashboard() {
                 </span>
               )}
               {!b.status && (
-                <span className="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-xl text-sm">
+                <span className="bg-yellow-300 text-yellow-600 px-3 py-1 rounded-xl text-sm">
                   Pending
                 </span>
               )}
