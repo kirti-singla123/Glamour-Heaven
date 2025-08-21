@@ -15,13 +15,14 @@ interface ServiceCardProps {
 const ServiceCard = ({ title, description, price, duration, image, rating = 5 }: ServiceCardProps) => {
   return (
     <Card className="group hover:shadow-luxury transition-all duration-300 hover:scale-105 bg-card border-border/50 overflow-hidden">
+      {/* ✅ Image section */}
       <div className="relative overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-40 sm:h-48 md:h-56 object-cover transition-transform duration-300 group-hover:scale-110"
         />
-        <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full">
+        <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full">
           <div className="flex items-center space-x-1">
             <Star className="w-3 h-3 fill-golden-accent text-golden-accent" />
             <span className="text-xs font-medium">{rating}</span>
@@ -29,28 +30,30 @@ const ServiceCard = ({ title, description, price, duration, image, rating = 5 }:
         </div>
       </div>
       
+      {/* ✅ Content */}
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+        <CardTitle className="text-lg sm:text-xl group-hover:text-primary transition-colors text-center sm:text-left">
           {title}
         </CardTitle>
-        <CardDescription className="text-muted-foreground">
+        <CardDescription className="text-sm sm:text-base text-muted-foreground text-center sm:text-left">
           {description}
         </CardDescription>
       </CardHeader>
       
       <CardContent className="space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-muted-foreground">
+        {/* ✅ Duration + Price section */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
+          <div className="flex items-center justify-center sm:justify-start space-x-2 text-muted-foreground">
             <Clock className="w-4 h-4" />
             <span className="text-sm">{duration}</span>
           </div>
-          <div className="text-right">
-            <div className="text-2xl font-bold text-primary">{price}</div>
+          <div className="text-center sm:text-right">
+            <div className="text-xl sm:text-2xl font-bold text-primary">{price}</div>
             <div className="text-xs text-muted-foreground">Starting from</div>
           </div>
         </div>
 
-        {/* ✅ FIX: use title instead of undefined service */}
+        {/* ✅ Button */}
         <Link to={`/book/${title}`}>
           <Button className="w-full shadow-soft hover:shadow-glow transition-all duration-300">
             Book This Service
