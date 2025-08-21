@@ -36,13 +36,19 @@ export default function Dashboard() {
     "Bridal Package",
   ];
 
+  const token = localStorage.getItem("22af85e1bbc9a80ec916e0880ccb67deb2567987");
+
   // Fetch bookings
   useEffect(() => {
-    fetch("https://glamourheaven-backend.onrender.com/api/bookings/")
+    fetch("https://glamourheaven-backend.onrender.com/api/bookings/", {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setBookings(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [token]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -57,7 +63,10 @@ export default function Dashboard() {
       "https://glamourheaven-backend.onrender.com/api/bookings/",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
         body: JSON.stringify(form),
       }
     );
@@ -70,29 +79,55 @@ export default function Dashboard() {
     }
   };
 
-  // ✅ Updated handleStatusChange
-  const handleStatusChange = (id: number, status: "accepted" | "rejected") => {
-    // Update UI immediately
+  // ✅ Updated handleStatusChange with token
+  const handleStatusChange = async (id: number, status: "accepted" | "rejected") => {
     setBookings((prev) =>
       prev.map((b) => (b.id === id ? { ...b, status } : b))
     );
 
-    // Save to backend so it persists
-    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/`, {
-      method: "PATCH", // PATCH updates only the status
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status }),
-    }).catch((err) => console.error(err));
+    try {
+      const res = await fetch(
+        `https://glamourheaven-backend.onrender.com/api/bookings/${id}/`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify({ status }),
+        }
+      );
+
+      if (!res.ok) {
+        console.error("Failed to update status:", await res.text());
+        // revert UI change if failed
+        setBookings((prev) =>
+          prev.map((b) => (b.id === id ? { ...b, status: b.status } : b))
+        );
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleDelete = (id: number) => {
-    fetch(`https://glamourheaven-backend.onrender.com/api/bookings/${id}/`, {
-      method: "DELETE",
-    })
-      .then(() => {
+  const handleDelete = async (id: number) => {
+    try {
+      const res = await fetch(
+        `https://glamourheaven-backend.onrender.com/api/bookings/${id}/`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+
+      if (res.ok) {
         setBookings((prev) => prev.filter((b) => b.id !== id));
-      })
-      .catch((err) => console.error(err));
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   // Summary counts
