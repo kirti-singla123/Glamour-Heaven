@@ -6,7 +6,7 @@ function DashboardLogin() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (token === process.env.REACT_APP_ADMIN_TOKEN) { 22af85e1bbc9a80ec916e0880ccb67deb2567987
+    if (token === process.env.REACT_APP_ADMIN_TOKEN) {
 
       localStorage.setItem("dashboardToken", token);
       navigate("/dashboard");
