@@ -18,8 +18,13 @@ function DashboardLogin() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-10 bg-white shadow-2xl rounded-2xl w-full max-w-md">
+    <div
+      className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://source.unsplash.com/1600x900/?salon,spa')", // <-- replace with your URL
+      }}
+    >
+      <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">
           ✨ Glamour Heaven Login ✨
         </h2>
