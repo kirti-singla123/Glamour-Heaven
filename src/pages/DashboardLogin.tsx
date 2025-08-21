@@ -21,7 +21,7 @@ function DashboardLogin() {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://i.etsystatic.com/43735431/r/il/e78765/5988160807/il_794xN.5988160807_ol9y.jpg')", // <-- replace with your URL
+        backgroundImage: "url('https://i.etsystatic.com/43735431/r/il/38bf79/5940012618/il_340x270.5940012618_ij50.jpg')", // <-- replace with your URL
       }}
     >
       <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
