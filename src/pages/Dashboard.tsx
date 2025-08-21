@@ -150,19 +150,27 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 p-8">
       {/* Header */}
-      <div className="flex justify-center items-center mb-10">
-        <div className="text-3xl font-bold text-orange-600 text-center">
-          ✨ Glamour Heaven Dashboard ✨
-        </div>
+      {/* Header */}
+<div className="flex justify-between items-center mb-10">
+  {/* Left spacer (empty) */}
+  <div className="w-1/3"></div>
 
-        {/* ✅ Logout Button */}
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 text-white px-4 py-2 rounded-xl shadow hover:bg-red-600"
-        >
-          Logout
-        </button>
-      </div>
+  {/* Centered title */}
+  <div className="w-1/3 text-center text-3xl font-bold text-orange-600">
+    ✨ Glamour Heaven Dashboard ✨
+  </div>
+
+  {/* Right logout button */}
+  <div className="w-1/3 flex justify-end">
+    <button
+      onClick={handleLogout}
+      className="bg-red-500 text-white px-4 py-2 rounded-xl shadow hover:bg-red-600"
+    >
+      Logout
+    </button>
+  </div>
+</div>
+
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
