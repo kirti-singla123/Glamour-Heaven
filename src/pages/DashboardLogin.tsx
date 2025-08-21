@@ -21,7 +21,7 @@ function DashboardLogin() {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg')", // <-- replace with your URL
+        backgroundImage: "url('https://cdn.tapetender70er.de/media/image/c5/48/8d/Wallpaper-for-Hair-Salons_944x944.jpg')", // <-- replace with your URL
       }}
     >
       <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
