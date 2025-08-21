@@ -6,9 +6,12 @@ function DashboardLogin() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    // Compare with your .env token
     if (token === process.env.REACT_APP_ADMIN_TOKEN) {
+      // ✅ Save to localStorage with the same key used in Dashboard.tsx
+      localStorage.setItem("token", token);
 
-      localStorage.setItem("dashboardToken", token);
+      // Redirect to dashboard
       navigate("/dashboard");
     } else {
       alert("Invalid token!");
