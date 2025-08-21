@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Navigation = () => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -26,7 +27,7 @@ const Navigation = () => {
             </div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -43,17 +44,51 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA + Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <a 
               href="tel:+919876543210" 
-              className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+              className="hidden sm:flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span className="text-sm">+91 98765 43210</span>
             </a>
+
+            {/* Mobile menu toggle */}
+            <button
+              className="md:hidden text-muted-foreground hover:text-primary"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden mt-4 space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className={`block text-base font-medium transition-colors duration-300 hover:text-primary ${
+                  location.pathname === item.path
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <a 
+              href="tel:+919876543210" 
+              className="block text-base text-muted-foreground hover:text-primary"
+            >
+              +91 98765 43210
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );
