@@ -203,17 +203,17 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen py-12 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Our Services</h1>
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8">
             Discover our comprehensive range of beauty and wellness treatments designed to enhance your natural radiance
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {serviceCategories.map((cat, index) => (
-              <Badge key={index} variant="secondary" className="text-sm px-3 py-1">
+              <Badge key={index} variant="secondary" className="text-xs sm:text-sm px-2 sm:px-3 py-1">
                 {cat.category}
               </Badge>
             ))}
@@ -222,15 +222,15 @@ const Services = () => {
 
         {/* Service Categories */}
         {serviceCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-16">
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold mb-2 text-center lg:text-left">
+          <div key={categoryIndex} className="mb-12 sm:mb-16">
+            <div className="mb-6 sm:mb-8 text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-2">
                 {category.category}
               </h2>
-              <div className="w-24 h-1 bg-gradient-golden mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-20 sm:w-24 h-1 bg-gradient-golden mx-auto lg:mx-0 rounded-full"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {category.services.map((service, serviceIndex) => (
                 <div key={serviceIndex} className="flex flex-col gap-4">
                   <ServiceCard {...service} />
@@ -241,16 +241,18 @@ const Services = () => {
         ))}
 
         {/* CTA Section */}
-        <div className="bg-gradient-hero rounded-2xl p-12 text-center mt-16">
-          <h2 className="text-3xl font-bold mb-4">Ready to Book Your Treatment?</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <div className="bg-gradient-hero rounded-2xl p-6 sm:p-10 lg:p-12 text-center mt-12 sm:mt-16">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+            Ready to Book Your Treatment?
+          </h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
             Contact us today to schedule your appointment and experience the luxury of professional beauty care
           </p>
           <div className="flex justify-center">
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-primary/30 hover:bg-primary/5"
+              className="text-sm sm:text-base border-primary/30 hover:bg-primary/5"
               onClick={() => window.open('tel:+919876543210')}
             >
               Call Now: +91 98765 43210
