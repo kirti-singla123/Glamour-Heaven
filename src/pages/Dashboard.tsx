@@ -150,8 +150,8 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 p-8">
       {/* Header */}
-      <div className="flex justify-between items-center mb-10">
-        <div className="text-3xl font-bold text-orange-600">
+      <div className="flex justify-center items-center mb-10">
+        <div className="text-3xl font-bold text-orange-600 text-center">
           ✨ Glamour Heaven Dashboard ✨
         </div>
 
