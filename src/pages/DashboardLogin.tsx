@@ -21,7 +21,7 @@ function DashboardLogin() {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://media.istockphoto.com/id/531328392/vector/beautiful-silhouette-of-long-hair-woman-on-pink-background.jpg?s=612x612&w=0&k=20&c=3yfbJ1wnkZ1_lwUrxFfJAGPid7NtPDtB6Zen7meuwhg=')", // <-- replace with your URL
+        backgroundImage: "url('https://t4.ftcdn.net/jpg/01/11/92/63/360_F_111926384_lD1WksOGslwnrpI9xClpRyWdSFN6WHm8.webp')", // <-- replace with your URL
       }}
     >
       <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
