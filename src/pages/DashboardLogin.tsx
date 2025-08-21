@@ -21,7 +21,7 @@ function DashboardLogin() {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://static.vecteezy.com/system/resources/thumbnails/037/246/944/small_2x/ai-generated-make-up-products-advertisment-background-with-copy-space-free-photo.jpg')", // <-- replace with your URL
+        backgroundImage: "url('https://thumbs.dreamstime.com/b/womens-parlor-salon-shop-interior-wallpaper-barber-graffitti-design-wood-pattern-background-270739318.jpg')", // <-- replace with your URL
       }}
     >
       <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
