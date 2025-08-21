@@ -6,7 +6,20 @@ function DashboardLogin() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    console.log("HELLO FROM LOGIN BUTTON");
+   
+  console.log("Login button clicked");
+  console.log("Entered token:", token);
+  console.log("Env token:", process.env.REACT_APP_ADMIN_TOKEN);
+
+  if (token === process.env.REACT_APP_ADMIN_TOKEN) {
+    localStorage.setItem("token", token);
+    console.log("✅ Token matched! Redirecting to dashboard...");
+    navigate("/dashboard");
+  } else {
+    console.log("❌ Token mismatch!");
+    alert("Invalid token!");
+  }
+};
     // // 🔎 Debug logs
     // console.log("Entered token:", token);
     // console.log("Env token:", process.env.REACT_APP_ADMIN_TOKEN);
@@ -21,7 +34,6 @@ function DashboardLogin() {
     // } else {
     //   alert("Invalid token!");
     // }
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
