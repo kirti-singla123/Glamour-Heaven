@@ -15,7 +15,7 @@ import DashboardLogin from "./pages/DashboardLogin"; // ✅ Login page
 const queryClient = new QueryClient();
 
 const App = () => {
-  const token = localStorage.getItem("Token"); // ✅ check if user is logged in
+  const token = localStorage.getItem("token"); // ✅ check if user is logged in
 
   return (
     <QueryClientProvider client={queryClient}>
