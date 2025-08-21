@@ -6,6 +6,10 @@ function DashboardLogin() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    // 🔎 Debug logs
+    console.log("Entered token:", token);
+    console.log("Env token:", process.env.REACT_APP_ADMIN_TOKEN);
+
     // Compare with your .env token
     if (token === process.env.REACT_APP_ADMIN_TOKEN) {
       // ✅ Save to localStorage with the same key used in Dashboard.tsx
