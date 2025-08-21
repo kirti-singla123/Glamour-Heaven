@@ -21,7 +21,7 @@ function DashboardLogin() {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://thumbs.dreamstime.com/b/womens-parlor-salon-shop-interior-wallpaper-barber-graffitti-design-wood-pattern-background-270739318.jpg')", // <-- replace with your URL
+        backgroundImage: "url('https://kacper.in/wp-content/uploads/2024/02/WhatsApp-Image-2024-02-21-at-9.21.18-PM.jpeg')", // <-- replace with your URL
       }}
     >
       <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
