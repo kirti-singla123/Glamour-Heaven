@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ import navigate for logout
 
 interface Booking {
   id: number;
@@ -37,6 +38,13 @@ export default function Dashboard() {
   ];
 
   const token = localStorage.getItem("token");
+  const navigate = useNavigate(); // ✅ hook for logout
+
+  // ✅ Logout handler
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // clear token
+    navigate("/login"); // redirect to login
+  };
 
   // Fetch bookings
   useEffect(() => {
@@ -79,8 +87,10 @@ export default function Dashboard() {
     }
   };
 
-  // ✅ Updated handleStatusChange with token
-  const handleStatusChange = async (id: number, status: "accepted" | "rejected") => {
+  const handleStatusChange = async (
+    id: number,
+    status: "accepted" | "rejected"
+  ) => {
     setBookings((prev) =>
       prev.map((b) => (b.id === id ? { ...b, status } : b))
     );
@@ -100,7 +110,6 @@ export default function Dashboard() {
 
       if (!res.ok) {
         console.error("Failed to update status:", await res.text());
-        // revert UI change if failed
         setBookings((prev) =>
           prev.map((b) => (b.id === id ? { ...b, status: b.status } : b))
         );
@@ -141,10 +150,18 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 p-8">
       {/* Header */}
-      <div className="text-center mb-10">
-        <div className="text-3xl font-bold text-orange-600 mb-2">
+      <div className="flex justify-between items-center mb-10">
+        <div className="text-3xl font-bold text-orange-600">
           ✨ Glamour Heaven Dashboard ✨
         </div>
+
+        {/* ✅ Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white px-4 py-2 rounded-xl shadow hover:bg-red-600"
+        >
+          Logout
+        </button>
       </div>
 
       {/* Stats Cards */}
