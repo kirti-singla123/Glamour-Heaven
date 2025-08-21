@@ -36,7 +36,7 @@ export default function Dashboard() {
     "Bridal Package",
   ];
 
-  const token = localStorage.getItem("22af85e1bbc9a80ec916e0880ccb67deb2567987");
+  const token = localStorage.getItem("token");
 
   // Fetch bookings
   useEffect(() => {
