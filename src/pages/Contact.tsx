@@ -31,10 +31,7 @@ const Contact = () => {
   ];
 
   return (
-    <div 
-      className="min-h-screen py-20" 
-      style={{ backgroundColor: "#ffe6cc" }} // custom peach background
-    >
+    <div className="min-h-screen py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Tagline */}
         <div className="text-center mb-16">
