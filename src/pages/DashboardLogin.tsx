@@ -21,7 +21,7 @@ function DashboardLogin() {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://c8.alamy.com/comp/T76AF6/spa-background-composition-flat-lay-natural-spa-cosmetics-and-organic-treatment-concept-on-white-copy-space-T76AF6.jpg')", // <-- replace with your URL
+        backgroundImage: "url('https://static.vecteezy.com/system/resources/thumbnails/049/536/562/small_2x/spa-concept-massage-stones-with-towels-and-candles-in-natural-background-photo.jpg')", // <-- replace with your URL
       }}
     >
       <div className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md">
