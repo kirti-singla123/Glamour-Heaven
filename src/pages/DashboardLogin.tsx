@@ -6,7 +6,7 @@ function DashboardLogin() {
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    e.preventDefault(); // 👈 stop any accidental form submit / reload
+    e.preventDefault();
 
     console.log("Entered token:", token);
     console.log("Env token:", import.meta.env.VITE_ADMIN_TOKEN);
@@ -21,7 +21,7 @@ function DashboardLogin() {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      className="flex items-center justify-center min-h-screen bg-cover bg-center px-4"
       style={{
         backgroundImage:
           "url('https://static.vecteezy.com/system/resources/thumbnails/049/536/562/small_2x/spa-concept-massage-stones-with-towels-and-candles-in-natural-background-photo.jpg')",
@@ -29,9 +29,9 @@ function DashboardLogin() {
     >
       <form
         onSubmit={handleLogin}
-        className="p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-md"
+        className="p-6 sm:p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-sm sm:max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center text-orange-600">
           ✨ Glamour Heaven Login ✨
         </h2>
 
