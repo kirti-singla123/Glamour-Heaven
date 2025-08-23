@@ -148,32 +148,22 @@ export default function Dashboard() {
   const revenue = bookings.reduce((sum, b) => sum + (b.price || 0), 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 p-4 md:p-8">
       {/* Header */}
-      {/* Header */}
-<div className="flex justify-between items-center mb-10">
-  {/* Left spacer (empty) */}
-  <div className="w-1/3"></div>
-
-  {/* Centered title */}
-  <div className="w-1/3 text-center text-3xl font-bold text-orange-600">
-    ✨ Glamour Heaven Dashboard ✨
-  </div>
-
-  {/* Right logout button */}
-  <div className="w-1/3 flex justify-end">
-    <button
-      onClick={handleLogout}
-      className="bg-red-500 text-white px-4 py-2 rounded-xl shadow hover:bg-red-600"
-    >
-      Logout
-    </button>
-  </div>
-</div>
-
+      <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+        <div className="text-center md:text-left text-2xl md:text-3xl font-bold text-orange-600">
+          ✨ Glamour Heaven Dashboard ✨
+        </div>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white px-4 py-2 rounded-xl shadow hover:bg-red-600 w-full md:w-auto"
+        >
+          Logout
+        </button>
+      </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         <div className="bg-white p-6 rounded-2xl shadow text-center">
           <div className="text-gray-500">Pending Bookings</div>
           <div className="text-2xl font-bold text-orange-600">{pendingCount}</div>
@@ -193,10 +183,10 @@ export default function Dashboard() {
       </div>
 
       {/* Add Walk-in Button */}
-      <div className="text-right mb-6">
+      <div className="text-center md:text-right mb-6">
         <button
           onClick={() => setShowForm((prev) => !prev)}
-          className="bg-gradient-to-r from-orange-400 to-pink-400 text-white px-6 py-3 rounded-xl shadow hover:opacity-90"
+          className="bg-gradient-to-r from-orange-400 to-pink-400 text-white px-6 py-3 rounded-xl shadow hover:opacity-90 w-full md:w-auto"
         >
           + Add Walk-in Service
         </button>
@@ -219,7 +209,7 @@ export default function Dashboard() {
               value={form.name}
               onChange={handleChange}
               placeholder="Customer Name"
-              className="border rounded-xl px-4 py-3"
+              className="border rounded-xl px-4 py-3 w-full"
               required
             />
             <input
@@ -228,7 +218,7 @@ export default function Dashboard() {
               value={form.phone}
               onChange={handleChange}
               placeholder="Phone Number"
-              className="border rounded-xl px-4 py-3"
+              className="border rounded-xl px-4 py-3 w-full"
               required
             />
             <input
@@ -236,7 +226,7 @@ export default function Dashboard() {
               name="date"
               value={form.date}
               onChange={handleChange}
-              className="border rounded-xl px-4 py-3"
+              className="border rounded-xl px-4 py-3 w-full"
               required
             />
             <input
@@ -244,14 +234,14 @@ export default function Dashboard() {
               name="time"
               value={form.time}
               onChange={handleChange}
-              className="border rounded-xl px-4 py-3"
+              className="border rounded-xl px-4 py-3 w-full"
               required
             />
             <select
               name="service"
               value={form.service}
               onChange={handleChange}
-              className="border rounded-xl px-4 py-3 col-span-2"
+              className="border rounded-xl px-4 py-3 col-span-1 md:col-span-2 w-full"
               required
             >
               <option value="">-- Select a service --</option>
@@ -264,7 +254,7 @@ export default function Dashboard() {
 
             <button
               type="submit"
-              className="col-span-2 bg-orange-500 text-white px-6 py-3 rounded-xl shadow hover:bg-orange-600"
+              className="col-span-1 md:col-span-2 bg-orange-500 text-white px-6 py-3 rounded-xl shadow hover:bg-orange-600 w-full"
             >
               Save Booking
             </button>
@@ -273,14 +263,16 @@ export default function Dashboard() {
       )}
 
       {/* Recent Bookings */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Recent Bookings</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center md:text-left">
+        Recent Bookings
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {bookings.map((b) => (
           <div
             key={b.id}
             className="bg-white p-6 rounded-2xl shadow border border-gray-100"
           >
-            <div className="flex justify-between items-center mb-3">
+            <div className="flex flex-wrap justify-between items-center mb-3 gap-2">
               <h3 className="text-lg font-semibold">{b.name}</h3>
 
               {b.status === "accepted" && (
@@ -306,22 +298,22 @@ export default function Dashboard() {
             </p>
             <p className="text-gray-500 text-sm">{b.phone}</p>
 
-            <div className="flex justify-between items-center mt-4">
-              <div className="flex gap-2">
+            <div className="flex flex-wrap justify-between items-center mt-4 gap-2">
+              <div className="flex flex-wrap gap-2">
                 <button
-                  className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600"
+                  className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600 w-full sm:w-auto"
                   onClick={() => handleStatusChange(b.id, "accepted")}
                 >
                   Accept
                 </button>
                 <button
-                  className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
+                  className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 w-full sm:w-auto"
                   onClick={() => handleStatusChange(b.id, "rejected")}
                 >
                   Reject
                 </button>
                 <button
-                  className="bg-gray-400 text-white px-3 py-1 rounded-lg hover:bg-gray-500"
+                  className="bg-gray-400 text-white px-3 py-1 rounded-lg hover:bg-gray-500 w-full sm:w-auto"
                   onClick={() => handleDelete(b.id)}
                 >
                   Delete
@@ -332,7 +324,7 @@ export default function Dashboard() {
         ))}
 
         {bookings.length === 0 && (
-          <p className="text-gray-500 text-center col-span-3">
+          <p className="text-gray-500 text-center col-span-1 sm:col-span-2 lg:col-span-3">
             No bookings available yet.
           </p>
         )}
@@ -340,3 +332,4 @@ export default function Dashboard() {
     </div>
   );
 }
+
