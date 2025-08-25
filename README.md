@@ -59,10 +59,10 @@ The system is built with a React frontend and a Django backend, seamlessly conne
 
 This project delivers a complete salon booking solution, featuring:
 
-A customer-facing booking platform
+🌸 A customer-facing booking platform
 
-A secure admin dashboard
+👩‍💼 A secure admin dashboard
 
-API-driven integration with authentication & notifications
+🔗 API-driven integration with authentication & notifications
 
 ✨ A showcase of full-stack development, API integration, authentication, and third-party service integration.
