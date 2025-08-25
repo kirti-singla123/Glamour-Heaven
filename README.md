@@ -6,22 +6,22 @@ The system is built with a React frontend and a Django backend, seamlessly conne
 
 🌐 Live Links
 
-Customer Booking Page: glamourheaven.netlify.app
+🌸 Customer Booking Page → glamourheaven.netlify.app
 
-Admin Dashboard (Login Protected): glamourheaven.netlify.app/dashboard
+👩‍💼 Admin Dashboard (Login Required) → glamourheaven.netlify.app/dashboard
 
-Backend API Root: glamourheaven-backend.onrender.com
+⚙️ Backend API Root → glamourheaven-backend.onrender.com
 
-Bookings API: glamourheaven-backend.onrender.com/api/bookings/
+📊 Bookings API → glamourheaven-backend.onrender.com/api/bookings/
 
 ✨ Features
 👩‍💻 For Customers
 
 ✅ Browse and book salon/spa services
 
-✅ Easy-to-use booking form
+✅ Simple & responsive booking form
 
-✅ Smooth, modern, responsive UI (desktop & mobile)
+✅ Smooth, modern UI/UX (desktop & mobile)
 
 🛠️ For Staff/Admins
 
@@ -29,40 +29,40 @@ Bookings API: glamourheaven-backend.onrender.com/api/bookings/
 
 ✅ Accept / Reject bookings in one click
 
-✅ Add manual bookings for walk-in customers
+✅ Add manual bookings (walk-in customers)
 
-✅ WhatsApp notifications via Twilio API for accepted/rejected bookings
+✅ WhatsApp notifications via Twilio API (on accept/reject)
 
 ✅ Secure login-protected dashboard (APIs locked without authentication)
 
 🛠️ Tech Stack
 
-Frontend: React + Tailwind CSS (Deployed on Netlify)
+🎨 Frontend: React + Tailwind CSS → (Deployed on Netlify)
 
-Backend: Django + Django REST Framework (Deployed on Render)
+⚙️ Backend: Django + Django REST Framework → (Deployed on Render)
 
-Database: SQLite3
+🗄️ Database: SQLite3
 
-Messaging: Twilio API (WhatsApp)
+💬 Messaging: Twilio API (WhatsApp integration)
 
-Integration: REST APIs (Frontend ↔ Backend)
+🔗 Integration: REST APIs (Frontend ↔ Backend)
 
 🚀 Deployment Workflow
 
-Frontend hosted on Netlify
+🌍 Frontend hosted on Netlify
 
-Backend hosted on Render
+⚡ Backend hosted on Render
 
-Connected via REST APIs
+🔗 Connected via REST APIs
 
 📌 Summary
 
-This project delivers a complete salon booking solution with a customer-facing website and a secure admin dashboard, showcasing:
+This project delivers a complete salon booking solution, featuring:
 
-Full-stack development
+A customer-facing booking platform
 
-API integration
+A secure admin dashboard
 
-Authentication & authorization
+API-driven integration with authentication & notifications
 
-Third-party service integration (Twilio API)
+✨ A showcase of full-stack development, API integration, authentication, and third-party service integration.
