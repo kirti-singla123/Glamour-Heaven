@@ -2,20 +2,38 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function DashboardLogin() {
-  const [token, setToken] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    console.log("Entered token:", token);
-    console.log("Env token:", import.meta.env.VITE_ADMIN_TOKEN);
+    try {
+      const response = await fetch("https://glamourheaven-backend.onrender.com/api/token/auth/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (token.trim() === import.meta.env.VITE_ADMIN_TOKEN) {
-      localStorage.setItem("token", token);
-      navigate("/dashboard");
-    } else {
-      alert("Invalid token!");
+      if (!response.ok) {
+        throw new Error("Invalid login credentials");
+      }
+
+      const data = await response.json();
+      console.log("Login response:", data);
+
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        navigate("/dashboard");
+      } else {
+        alert("Login failed: No token received");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Login failed. Please check your credentials.");
     }
   };
 
@@ -36,10 +54,18 @@ function DashboardLogin() {
         </h2>
 
         <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="border border-gray-300 p-3 rounded-xl w-full mb-4 focus:ring-2 focus:ring-orange-500 outline-none"
+        />
+
+        <input
           type="password"
-          placeholder="Enter token"
-          value={token}
-          onChange={(e) => setToken(e.target.value)}
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="border border-gray-300 p-3 rounded-xl w-full mb-5 focus:ring-2 focus:ring-orange-500 outline-none"
         />
 
