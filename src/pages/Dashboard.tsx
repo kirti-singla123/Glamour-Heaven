@@ -38,7 +38,15 @@ export default function Dashboard() {
   ];
 
   const token = localStorage.getItem("token");
-  const navigate = useNavigate(); // ✅ hook for logout
+  const navigate = useNavigate(); //
+  
+    // Redirect to login if no token is present
+  useEffect(() => {
+    if (!token) {
+      navigate("/login", { replace: true });
+    }
+  }, [token, navigate]);
+
 
   // ✅ Logout handler
   const handleLogout = () => {
@@ -48,6 +56,8 @@ export default function Dashboard() {
 
   // Fetch bookings
   useEffect(() => {
+    if (!token) return;
+    
     fetch("https://glamourheaven-backend.onrender.com/api/bookings/", {
       headers: {
         Authorization: `Token ${token}`,
