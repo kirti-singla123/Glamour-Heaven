@@ -15,7 +15,8 @@ function DashboardLogin() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username: "dell", password: "admin123" })
+
       });
 
       if (!response.ok) {
