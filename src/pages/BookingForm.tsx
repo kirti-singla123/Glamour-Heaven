@@ -12,6 +12,9 @@ function BookingForm() {
   const { serviceName } = useParams<{ serviceName: string }>();
   const [form, setForm] = useState<FormData>({ name: "", date: "", time: "", phone: "" });
 
+  // ✅ Get token from localStorage
+  const token = localStorage.getItem("token");
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -22,6 +25,7 @@ function BookingForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: token ? `Token ${token}` : "", // ✅ added token safely
         },
         body: JSON.stringify(bookingData),
       });
