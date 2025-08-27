@@ -9,9 +9,9 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 ## 🌐 Live Links  
 - 🌸 **Customer Booking Page** → [glamourheaven.netlify.app](https://glamourheaven.netlify.app)  
 - 👩‍💼 **Admin Dashboard (Login Required)** → [glamourheaven.netlify.app/dashboard](https://glamourheaven.netlify.app/dashboard)
-- Demo Credentials:
-- Username: dell
-- Password: admin123
+  💡 Demo Credentials:
+    • Username: dell
+    • Password: admin123
 - ⚙️ **Backend API Root** → [glamourheaven-backend.onrender.com](https://glamourheaven-backend.onrender.com/)  
 - 📊 **Bookings API** → [glamourheaven-backend.onrender.com/api/bookings/](https://glamourheaven-backend.onrender.com/api/bookings/)  
 
