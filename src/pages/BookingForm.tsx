@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -14,6 +14,7 @@ function BookingForm() {
 
   // ✅ Get token from localStorage
   const token = localStorage.getItem("token");
+  const navigate = useNavigate(); // initialize navigate
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ function BookingForm() {
       if (response.ok) {
         alert(`Booking confirmed for ${serviceName}!`);
         setForm({ name: "", date: "", time: "", phone: "" }); // reset form
+        navigate("/"); // ✅ redirect to home page after booking
       } else {
         const errorData = await response.json();
         console.error("Error creating booking:", errorData);
