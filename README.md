@@ -68,6 +68,21 @@ Below is a list of all main REST API endpoints available in the backend:
 
 “Other RESTful endpoints (GET single booking, PATCH update booking) are available via ModelViewSet, but are not used in the current frontend flow.”
 
+### 🔄 API Flow Overview  
+
+**Customer (Frontend)**  
+→ [Create Booking] → `/api/bookings/ (POST)`  
+
+**Admin (Dashboard)**  
+→ [Login]          → `/api/token/auth/ (POST)`  
+→ [View Bookings]  → `/api/bookings/ (GET)`  
+→ [Delete Booking] → `/api/bookings/{id}/ (DELETE)`  
+→ [Accept Booking] → `/api/bookings/{id}/accept/ (POST)`  
+→ [Reject Booking] → `/api/bookings/{id}/reject/ (POST)`  
+
+✅ On Accept/Reject → WhatsApp Notification sent via Twilio API
+
+
 ## 📌 Summary  
 This project delivers a **complete salon booking solution**, featuring:  
 - 🌸 A **customer-facing booking platform**  
