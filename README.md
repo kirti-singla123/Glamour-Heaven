@@ -58,3 +58,21 @@ This project delivers a **complete salon booking solution**, featuring:
 - 🔗 **API-driven integration** with authentication & notifications  
 
 ✨ A showcase of **full-stack development, API integration, authentication, and third-party service integration**.  
+
+
+## 📌 API Documentation
+
+Below is a list of all main REST API endpoints available in the backend:
+
+| Endpoint | Method | Description |
+|----------|---------|-------------|
+| `/` | GET | Root welcome message |
+| `/admin/` | - | Django Admin site |
+| `/api/token/auth/` | POST | Obtain authentication token (login) |
+| `/api/bookings/` | GET | List all bookings (Auth required) |
+| `/api/bookings/` | POST | Create a new booking (Public allowed) |
+| `/api/bookings/{id}/` | GET | Retrieve booking details (Auth required) |
+| `/api/bookings/{id}/` | PATCH | Update a booking (Auth required) |
+| `/api/bookings/{id}/` | DELETE | Delete a booking (Auth required) |
+| `/api/bookings/{id}/accept/` | POST | Accept a booking & send WhatsApp notification |
+| `/api/bookings/{id}/reject/` | POST | Reject a booking & send WhatsApp notification |
