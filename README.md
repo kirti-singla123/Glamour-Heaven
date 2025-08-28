@@ -51,15 +51,6 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 
 ---
 
-## 📌 Summary  
-This project delivers a **complete salon booking solution**, featuring:  
-- 🌸 A **customer-facing booking platform**  
-- 👩‍💼 A **secure admin dashboard**  
-- 🔗 **API-driven integration** with authentication & notifications  
-
-✨ A showcase of **full-stack development, API integration, authentication, and third-party service integration**.  
-
-
 ## 📌 API Documentation
 
 Below is a list of all main REST API endpoints available in the backend:
@@ -76,3 +67,12 @@ Below is a list of all main REST API endpoints available in the backend:
 | `/api/bookings/{id}/` | DELETE | Delete a booking (Auth required) |
 | `/api/bookings/{id}/accept/` | POST | Accept a booking & send WhatsApp notification |
 | `/api/bookings/{id}/reject/` | POST | Reject a booking & send WhatsApp notification |
+
+
+## 📌 Summary  
+This project delivers a **complete salon booking solution**, featuring:  
+- 🌸 A **customer-facing booking platform**  
+- 👩‍💼 A **secure admin dashboard**  
+- 🔗 **API-driven integration** with authentication & notifications  
+
+✨ A showcase of **full-stack development, API integration, authentication, and third-party service integration**.  
