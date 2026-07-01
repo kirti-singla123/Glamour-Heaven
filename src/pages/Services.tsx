@@ -179,7 +179,7 @@ const Services = () => {
           rating: 5
         },
         {
-          title: "Gel Manicure",
+          title: "Luxury Gel Manicure",
           description: "Chip-resistant gel polish manicure with a glossy finish",
           price: "₹1,200",
           duration: "45 mins",
@@ -240,7 +240,7 @@ const Services = () => {
           rating: 5
         },
         {
-          title: "Party Makeup",
+          title: "Premium Party Makeup",
           description: "Glamorous party makeup look for celebrations and nights out",
           price: "₹3,000",
           duration: "60 mins",
@@ -248,7 +248,7 @@ const Services = () => {
           rating: 5
         },
         {
-          title: "Engagement Makeup",
+          title: "Elite Engagement Makeup",
           description: "Elegant engagement day makeup for a flawless look",
           price: "₹6,000",
           duration: "90 mins",
@@ -256,7 +256,7 @@ const Services = () => {
           rating: 5
         },
         {
-          title: "Bridal Makeup",
+          title: "Premium Bridal Makeup",
           description: "Stunning bridal makeup for your special day",
           price: "₹15,000",
           duration: "180 mins",
@@ -338,7 +338,7 @@ const Services = () => {
           rating: 5
         },
         {
-          title: "Body Massage",
+          title: "Deep Tissue Body Massage",
           description: "Rejuvenating full body massage for deep relaxation",
           price: "₹2,500",
           duration: "60 mins",
