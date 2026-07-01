@@ -46,7 +46,7 @@ const Index = () => {
       <section className="py-16 bg-luxury-cream/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Why Choose Glow Beauty?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Why Choose Glamour Haven?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Experience the difference with our professional treatments and luxurious environment
             </p>
