@@ -99,7 +99,7 @@ const Chatbot = () => {
           className="fixed bottom-24 right-6 z-50 flex h-[70vh] max-h-[600px] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-[#8B7355]/20 bg-white shadow-2xl animate-in fade-in slide-in-from-bottom-4 zoom-in-95 duration-300 sm:right-6 sm:w-96"
         >
           {/* Header */}
-          <div className="flex items-center gap-3 bg-[#8B7355] px-4 py-4 text-white">
+          <div className="flex items-center gap-3 bg-[#C4923A] px-4 py-4 text-white">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
               <Sparkles className="h-5 w-5" />
             </div>
@@ -128,7 +128,7 @@ const Chatbot = () => {
                 <div
                   className={`max-w-[80%] whitespace-pre-wrap break-words rounded-2xl px-4 py-2 text-sm shadow-sm ${
                     msg.role === "user"
-                      ? "rounded-br-sm bg-[#8B7355] text-white"
+                      ? "rounded-br-sm bg-[#C4923A] text-white"
                       : "rounded-bl-sm border border-[#8B7355]/15 bg-[#F5F0E8] text-gray-700"
                   }`}
                 >
