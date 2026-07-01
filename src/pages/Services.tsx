@@ -1,6 +1,6 @@
+import { useState } from "react";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 // Import all service images
 import facialService from "@/assets/facial-service.jpg";
@@ -23,8 +23,11 @@ import upperLipThreadingService from "@/assets/upper-lip-threading-service.jpg";
 import bodyMassageService from "@/assets/body-massage-service.jpg";
 import hotStoneMassageService from "@/assets/hot-stone-massage-service.jpg";
 import bodyScrubService from "@/assets/body-scrub-service.jpg";
+import manicureService from "@/assets/manicure-service.jpg";
+import spaService from "@/assets/spa-service.jpg";
 
 const Services = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
   const serviceCategories = [
     {
       category: "Facial Treatments",
@@ -50,6 +53,30 @@ const Services = () => {
           description: "Luxurious gold leaf treatment for radiant, glowing skin",
           price: "₹5,000",
           duration: "90 mins",
+          image: goldFacialService,
+          rating: 5
+        },
+        {
+          title: "Fruit Facial",
+          description: "Refreshing facial using natural fruit extracts for glowing skin",
+          price: "₹1,200",
+          duration: "45 mins",
+          image: facialService,
+          rating: 5
+        },
+        {
+          title: "Hydrafacial",
+          description: "Advanced hydra-dermabrasion treatment for deep hydration and clarity",
+          price: "₹4,500",
+          duration: "60 mins",
+          image: classicFacialService,
+          rating: 5
+        },
+        {
+          title: "Brightening Facial",
+          description: "Skin brightening treatment to even tone and restore radiance",
+          price: "₹2,000",
+          duration: "50 mins",
           image: goldFacialService,
           rating: 5
         }
@@ -81,6 +108,46 @@ const Services = () => {
           duration: "90 mins",
           image: hairTreatmentService,
           rating: 5
+        },
+        {
+          title: "Hair Spa",
+          description: "Nourishing hair spa treatment for smooth, healthy hair",
+          price: "₹1,500",
+          duration: "60 mins",
+          image: hairService,
+          rating: 5
+        },
+        {
+          title: "Keratin Treatment",
+          description: "Smoothing keratin treatment for frizz-free, silky hair",
+          price: "₹5,000",
+          duration: "120 mins",
+          image: hairTreatmentService,
+          rating: 5
+        },
+        {
+          title: "Hair Coloring",
+          description: "Vibrant full hair coloring with long-lasting shine",
+          price: "₹3,000",
+          duration: "90 mins",
+          image: hairColorService,
+          rating: 5
+        },
+        {
+          title: "Highlights",
+          description: "Dimensional hair highlights for a sun-kissed look",
+          price: "₹4,000",
+          duration: "120 mins",
+          image: hairCutStyleService,
+          rating: 5
+        },
+        {
+          title: "Hair Straightening",
+          description: "Long-lasting straightening treatment for sleek, smooth hair",
+          price: "₹4,500",
+          duration: "150 mins",
+          image: hairService,
+          rating: 5
         }
       ]
     },
@@ -109,6 +176,38 @@ const Services = () => {
           price: "₹1,000",
           duration: "75 mins",
           image: pedicureDeluxeService,
+          rating: 5
+        },
+        {
+          title: "Gel Manicure",
+          description: "Chip-resistant gel polish manicure with a glossy finish",
+          price: "₹1,200",
+          duration: "45 mins",
+          image: gelManicureService,
+          rating: 5
+        },
+        {
+          title: "Gel Pedicure",
+          description: "Long-lasting gel polish pedicure with soothing foot pampering",
+          price: "₹1,500",
+          duration: "60 mins",
+          image: pedicureDeluxeService,
+          rating: 5
+        },
+        {
+          title: "Nail Art",
+          description: "Creative custom nail art designs for a unique look",
+          price: "₹800",
+          duration: "30 mins",
+          image: basicManicureService,
+          rating: 5
+        },
+        {
+          title: "Nail Extensions",
+          description: "Durable nail extensions for added length and strength",
+          price: "₹2,000",
+          duration: "90 mins",
+          image: manicureService,
           rating: 5
         }
       ]
@@ -139,6 +238,30 @@ const Services = () => {
           duration: "2 hours",
           image: engagementMakeupService,
           rating: 5
+        },
+        {
+          title: "Party Makeup",
+          description: "Glamorous party makeup look for celebrations and nights out",
+          price: "₹3,000",
+          duration: "60 mins",
+          image: partyMakeupService,
+          rating: 5
+        },
+        {
+          title: "Engagement Makeup",
+          description: "Elegant engagement day makeup for a flawless look",
+          price: "₹6,000",
+          duration: "90 mins",
+          image: engagementMakeupService,
+          rating: 5
+        },
+        {
+          title: "Bridal Makeup",
+          description: "Stunning bridal makeup for your special day",
+          price: "₹15,000",
+          duration: "180 mins",
+          image: makeupService,
+          rating: 5
         }
       ]
     },
@@ -166,6 +289,22 @@ const Services = () => {
           description: "Quick and precise upper lip hair removal",
           price: "₹150",
           duration: "15 mins",
+          image: upperLipThreadingService,
+          rating: 5
+        },
+        {
+          title: "Full Face Waxing",
+          description: "Smooth, hair-free skin with gentle full face waxing",
+          price: "₹400",
+          duration: "30 mins",
+          image: fullFaceThreadingService,
+          rating: 5
+        },
+        {
+          title: "Full Arms Waxing",
+          description: "Complete arm waxing for silky smooth skin",
+          price: "₹600",
+          duration: "45 mins",
           image: upperLipThreadingService,
           rating: 5
         }
@@ -197,10 +336,23 @@ const Services = () => {
           duration: "45 mins",
           image: bodyScrubService,
           rating: 5
+        },
+        {
+          title: "Body Massage",
+          description: "Rejuvenating full body massage for deep relaxation",
+          price: "₹2,500",
+          duration: "60 mins",
+          image: spaService,
+          rating: 5
         }
       ]
     }
   ];
+
+  const filteredCategories =
+    activeFilter === "All"
+      ? serviceCategories
+      : serviceCategories.filter((cat) => cat.category === activeFilter);
 
   return (
     <div className="min-h-screen py-12 sm:py-16">
@@ -212,16 +364,34 @@ const Services = () => {
             Discover our comprehensive range of beauty and wellness treatments designed to enhance your natural radiance
           </p>
           <div className="flex flex-wrap justify-center gap-2">
+            <button
+              onClick={() => setActiveFilter("All")}
+              className={`text-xs sm:text-sm px-3 py-1.5 rounded-full border transition-colors duration-200 ${
+                activeFilter === "All"
+                  ? "bg-[#C4923A] border-[#C4923A] text-white"
+                  : "bg-secondary border-transparent text-secondary-foreground hover:border-[#C4923A]/50"
+              }`}
+            >
+              All
+            </button>
             {serviceCategories.map((cat, index) => (
-              <Badge key={index} variant="secondary" className="text-xs sm:text-sm px-2 sm:px-3 py-1">
+              <button
+                key={index}
+                onClick={() => setActiveFilter(cat.category)}
+                className={`text-xs sm:text-sm px-3 py-1.5 rounded-full border transition-colors duration-200 ${
+                  activeFilter === cat.category
+                    ? "bg-[#C4923A] border-[#C4923A] text-white"
+                    : "bg-secondary border-transparent text-secondary-foreground hover:border-[#C4923A]/50"
+                }`}
+              >
                 {cat.category}
-              </Badge>
+              </button>
             ))}
           </div>
         </div>
 
         {/* Service Categories */}
-        {serviceCategories.map((category, categoryIndex) => (
+        {filteredCategories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-12 sm:mb-16">
             <div className="mb-6 sm:mb-8 text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl font-bold mb-2">
