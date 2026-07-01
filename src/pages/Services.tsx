@@ -5,6 +5,11 @@ import { servicePlaceholder } from "@/lib/servicePlaceholder";
 
 // Import all service images
 import fruitFacialService from "@/assets/fruit-facial-salon.png";
+import hydrafacialService from "@/assets/Hydrafacial.png";
+import brighteningFacialService from "@/assets/brightening-facial.png";
+import hairSpaService from "@/assets/hair-spa.png";
+import keratinTreatmentService from "@/assets/keratin-treatment.png";
+import hairColoringService from "@/assets/hair-coloring.png";
 import classicFacialService from "@/assets/classic-facial-service.jpg";
 import antiAgingFacialService from "@/assets/anti-aging-facial-service.jpg";
 import goldFacialService from "@/assets/gold-facial-service.jpg";
@@ -67,7 +72,7 @@ const Services = () => {
           description: "Advanced hydra-dermabrasion treatment for deep hydration and clarity",
           price: "₹4,500",
           duration: "60 mins",
-          image: servicePlaceholder("Hydrafacial", 1),
+          image: hydrafacialService,
           rating: 5
         },
         {
@@ -75,7 +80,7 @@ const Services = () => {
           description: "Skin brightening treatment to even tone and restore radiance",
           price: "₹2,000",
           duration: "50 mins",
-          image: servicePlaceholder("Brightening Facial", 2),
+          image: brighteningFacialService,
           rating: 5
         }
       ]
@@ -112,7 +117,7 @@ const Services = () => {
           description: "Nourishing hair spa treatment for smooth, healthy hair",
           price: "₹1,500",
           duration: "60 mins",
-          image: servicePlaceholder("Hair Spa", 3),
+          image: hairSpaService,
           rating: 5
         },
         {
@@ -120,7 +125,7 @@ const Services = () => {
           description: "Smoothing keratin treatment for frizz-free, silky hair",
           price: "₹5,000",
           duration: "120 mins",
-          image: servicePlaceholder("Keratin Treatment", 0),
+          image: keratinTreatmentService,
           rating: 5
         },
         {
@@ -128,7 +133,7 @@ const Services = () => {
           description: "Vibrant full hair coloring with long-lasting shine",
           price: "₹3,000",
           duration: "90 mins",
-          image: servicePlaceholder("Hair Coloring", 1),
+          image: hairColoringService,
           rating: 5
         },
         {
