@@ -10,11 +10,12 @@ import brighteningFacialService from "@/assets/brightening-facial.png";
 import hairSpaService from "@/assets/hair-spa.png";
 import keratinTreatmentService from "@/assets/keratin-treatment.png";
 import hairColoringService from "@/assets/hair-coloring.png";
+import hairStraighteningService from "@/assets/hair-straightening.png";
+import highlightsService from "@/assets/highlights.png";
 import classicFacialService from "@/assets/classic-facial-service.jpg";
 import antiAgingFacialService from "@/assets/anti-aging-facial-service.jpg";
 import goldFacialService from "@/assets/gold-facial-service.jpg";
 import hairCutStyleService from "@/assets/hair-cut-style-service.jpg";
-import hairColorService from "@/assets/hair-color-service.jpg";
 import hairTreatmentService from "@/assets/hair-treatment-service.jpg";
 import basicManicureService from "@/assets/basic-manicure-service.jpg";
 import gelManicureService from "@/assets/gel-manicure-service.jpg";
@@ -28,6 +29,16 @@ import upperLipThreadingService from "@/assets/upper-lip-threading-service.jpg";
 import bodyMassageService from "@/assets/body-massage-service.jpg";
 import hotStoneMassageService from "@/assets/hot-stone-massage-service.jpg";
 import bodyScrubService from "@/assets/body-scrub-service.jpg";
+import deepTissueBodyMassageService from "@/assets/Deep-Tissue-Body-Massage.png";
+import fullFaceWaxingService from "@/assets/Full Face Waxing.png";
+import fullArmsWaxingService from "@/assets/Full Arms Waxing.png";
+import premiumPartyMakeupService from "@/assets/Premium-Party-Makeup.png";
+import eliteEngagementMakeupService from "@/assets/Elite-Engagement-Makeup.png";
+import premiumBridalMakeupService from "@/assets/Premium-Bridal-Makeup.png";
+import luxuryGelManicureService from "@/assets/Luxury-Gel-Manicure.png";
+import gelPedicureService from "@/assets/Gel-Pedicure.png";
+import nailArtService from "@/assets/Nail-Art.png";
+import nailExtensionsService from "@/assets/Nail-Extensions.png";
 
 const Services = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -97,14 +108,6 @@ const Services = () => {
           rating: 5
         },
         {
-          title: "Hair Color",
-          description: "Full hair coloring with premium products",
-          price: "₹2,500",
-          duration: "120 mins",
-          image: hairColorService,
-          rating: 5
-        },
-        {
           title: "Hair Treatment",
           description: "Deep conditioning and repair treatment",
           price: "₹1,800",
@@ -141,7 +144,7 @@ const Services = () => {
           description: "Dimensional hair highlights for a sun-kissed look",
           price: "₹4,000",
           duration: "120 mins",
-          image: servicePlaceholder("Highlights", 2),
+          image: highlightsService,
           rating: 5
         },
         {
@@ -149,7 +152,7 @@ const Services = () => {
           description: "Long-lasting straightening treatment for sleek, smooth hair",
           price: "₹4,500",
           duration: "150 mins",
-          image: servicePlaceholder("Hair Straightening", 3),
+          image: hairStraighteningService,
           rating: 5
         }
       ]
@@ -186,7 +189,7 @@ const Services = () => {
           description: "Chip-resistant gel polish manicure with a glossy finish",
           price: "₹1,200",
           duration: "45 mins",
-          image: servicePlaceholder("Luxury Gel Manicure", 0),
+          image: luxuryGelManicureService,
           rating: 5
         },
         {
@@ -194,7 +197,7 @@ const Services = () => {
           description: "Long-lasting gel polish pedicure with soothing foot pampering",
           price: "₹1,500",
           duration: "60 mins",
-          image: servicePlaceholder("Gel Pedicure", 1),
+          image: gelPedicureService,
           rating: 5
         },
         {
@@ -202,7 +205,7 @@ const Services = () => {
           description: "Creative custom nail art designs for a unique look",
           price: "₹800",
           duration: "30 mins",
-          image: servicePlaceholder("Nail Art", 2),
+          image: nailArtService,
           rating: 5
         },
         {
@@ -210,7 +213,7 @@ const Services = () => {
           description: "Durable nail extensions for added length and strength",
           price: "₹2,000",
           duration: "90 mins",
-          image: servicePlaceholder("Nail Extensions", 3),
+          image: nailExtensionsService,
           rating: 5
         }
       ]
@@ -247,7 +250,7 @@ const Services = () => {
           description: "Glamorous party makeup look for celebrations and nights out",
           price: "₹3,000",
           duration: "60 mins",
-          image: servicePlaceholder("Premium Party Makeup", 0),
+          image: premiumPartyMakeupService,
           rating: 5
         },
         {
@@ -255,7 +258,7 @@ const Services = () => {
           description: "Elegant engagement day makeup for a flawless look",
           price: "₹6,000",
           duration: "90 mins",
-          image: servicePlaceholder("Elite Engagement Makeup", 1),
+          image: eliteEngagementMakeupService,
           rating: 5
         },
         {
@@ -263,7 +266,7 @@ const Services = () => {
           description: "Stunning bridal makeup for your special day",
           price: "₹15,000",
           duration: "180 mins",
-          image: servicePlaceholder("Premium Bridal Makeup", 2),
+          image: premiumBridalMakeupService,
           rating: 5
         }
       ]
@@ -300,7 +303,7 @@ const Services = () => {
           description: "Smooth, hair-free skin with gentle full face waxing",
           price: "₹400",
           duration: "30 mins",
-          image: servicePlaceholder("Full Face Waxing", 3),
+          image: fullFaceWaxingService,
           rating: 5
         },
         {
@@ -308,7 +311,7 @@ const Services = () => {
           description: "Complete arm waxing for silky smooth skin",
           price: "₹600",
           duration: "45 mins",
-          image: servicePlaceholder("Full Arms Waxing", 0),
+          image: fullArmsWaxingService,
           rating: 5
         }
       ]
@@ -345,7 +348,7 @@ const Services = () => {
           description: "Rejuvenating full body massage for deep relaxation",
           price: "₹2,500",
           duration: "60 mins",
-          image: servicePlaceholder("Deep Tissue Body Massage", 1),
+          image: deepTissueBodyMassageService,
           rating: 5
         }
       ]
