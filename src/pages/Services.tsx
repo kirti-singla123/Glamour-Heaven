@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import { servicePlaceholder } from "@/lib/servicePlaceholder";
 
 // Import all service images
 import fruitFacialService from "@/assets/fruit-facial-salon.png";
@@ -36,7 +35,7 @@ import premiumPartyMakeupService from "@/assets/Premium-Party-Makeup.png";
 import eliteEngagementMakeupService from "@/assets/Elite-Engagement-Makeup.png";
 import premiumBridalMakeupService from "@/assets/Premium-Bridal-Makeup.png";
 import luxuryGelManicureService from "@/assets/Luxury-Gel-Manicure.png";
-import gelPedicureService from "@/assets/Gel-Pedicure.png";
+import gelPedicureService from "@/assets/gel-pedicure.png";
 import nailArtService from "@/assets/Nail-Art.png";
 import nailExtensionsService from "@/assets/Nail-Extensions.png";
 
