@@ -1,13 +1,12 @@
 import { useState } from "react";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
+import { servicePlaceholder } from "@/lib/servicePlaceholder";
 
 // Import all service images
-import facialService from "@/assets/facial-service.jpg";
 import classicFacialService from "@/assets/classic-facial-service.jpg";
 import antiAgingFacialService from "@/assets/anti-aging-facial-service.jpg";
 import goldFacialService from "@/assets/gold-facial-service.jpg";
-import hairService from "@/assets/hair-service.jpg";
 import hairCutStyleService from "@/assets/hair-cut-style-service.jpg";
 import hairColorService from "@/assets/hair-color-service.jpg";
 import hairTreatmentService from "@/assets/hair-treatment-service.jpg";
@@ -23,8 +22,6 @@ import upperLipThreadingService from "@/assets/upper-lip-threading-service.jpg";
 import bodyMassageService from "@/assets/body-massage-service.jpg";
 import hotStoneMassageService from "@/assets/hot-stone-massage-service.jpg";
 import bodyScrubService from "@/assets/body-scrub-service.jpg";
-import manicureService from "@/assets/manicure-service.jpg";
-import spaService from "@/assets/spa-service.jpg";
 
 const Services = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -61,7 +58,7 @@ const Services = () => {
           description: "Refreshing facial using natural fruit extracts for glowing skin",
           price: "₹1,200",
           duration: "45 mins",
-          image: facialService,
+          image: servicePlaceholder("Fruit Facial", 0),
           rating: 5
         },
         {
@@ -69,7 +66,7 @@ const Services = () => {
           description: "Advanced hydra-dermabrasion treatment for deep hydration and clarity",
           price: "₹4,500",
           duration: "60 mins",
-          image: classicFacialService,
+          image: servicePlaceholder("Hydrafacial", 1),
           rating: 5
         },
         {
@@ -77,7 +74,7 @@ const Services = () => {
           description: "Skin brightening treatment to even tone and restore radiance",
           price: "₹2,000",
           duration: "50 mins",
-          image: goldFacialService,
+          image: servicePlaceholder("Brightening Facial", 2),
           rating: 5
         }
       ]
@@ -114,7 +111,7 @@ const Services = () => {
           description: "Nourishing hair spa treatment for smooth, healthy hair",
           price: "₹1,500",
           duration: "60 mins",
-          image: hairService,
+          image: servicePlaceholder("Hair Spa", 3),
           rating: 5
         },
         {
@@ -122,7 +119,7 @@ const Services = () => {
           description: "Smoothing keratin treatment for frizz-free, silky hair",
           price: "₹5,000",
           duration: "120 mins",
-          image: hairTreatmentService,
+          image: servicePlaceholder("Keratin Treatment", 0),
           rating: 5
         },
         {
@@ -130,7 +127,7 @@ const Services = () => {
           description: "Vibrant full hair coloring with long-lasting shine",
           price: "₹3,000",
           duration: "90 mins",
-          image: hairColorService,
+          image: servicePlaceholder("Hair Coloring", 1),
           rating: 5
         },
         {
@@ -138,7 +135,7 @@ const Services = () => {
           description: "Dimensional hair highlights for a sun-kissed look",
           price: "₹4,000",
           duration: "120 mins",
-          image: hairCutStyleService,
+          image: servicePlaceholder("Highlights", 2),
           rating: 5
         },
         {
@@ -146,7 +143,7 @@ const Services = () => {
           description: "Long-lasting straightening treatment for sleek, smooth hair",
           price: "₹4,500",
           duration: "150 mins",
-          image: hairService,
+          image: servicePlaceholder("Hair Straightening", 3),
           rating: 5
         }
       ]
@@ -183,7 +180,7 @@ const Services = () => {
           description: "Chip-resistant gel polish manicure with a glossy finish",
           price: "₹1,200",
           duration: "45 mins",
-          image: gelManicureService,
+          image: servicePlaceholder("Luxury Gel Manicure", 0),
           rating: 5
         },
         {
@@ -191,7 +188,7 @@ const Services = () => {
           description: "Long-lasting gel polish pedicure with soothing foot pampering",
           price: "₹1,500",
           duration: "60 mins",
-          image: pedicureDeluxeService,
+          image: servicePlaceholder("Gel Pedicure", 1),
           rating: 5
         },
         {
@@ -199,7 +196,7 @@ const Services = () => {
           description: "Creative custom nail art designs for a unique look",
           price: "₹800",
           duration: "30 mins",
-          image: basicManicureService,
+          image: servicePlaceholder("Nail Art", 2),
           rating: 5
         },
         {
@@ -207,7 +204,7 @@ const Services = () => {
           description: "Durable nail extensions for added length and strength",
           price: "₹2,000",
           duration: "90 mins",
-          image: manicureService,
+          image: servicePlaceholder("Nail Extensions", 3),
           rating: 5
         }
       ]
@@ -244,7 +241,7 @@ const Services = () => {
           description: "Glamorous party makeup look for celebrations and nights out",
           price: "₹3,000",
           duration: "60 mins",
-          image: partyMakeupService,
+          image: servicePlaceholder("Premium Party Makeup", 0),
           rating: 5
         },
         {
@@ -252,7 +249,7 @@ const Services = () => {
           description: "Elegant engagement day makeup for a flawless look",
           price: "₹6,000",
           duration: "90 mins",
-          image: engagementMakeupService,
+          image: servicePlaceholder("Elite Engagement Makeup", 1),
           rating: 5
         },
         {
@@ -260,7 +257,7 @@ const Services = () => {
           description: "Stunning bridal makeup for your special day",
           price: "₹15,000",
           duration: "180 mins",
-          image: makeupService,
+          image: servicePlaceholder("Premium Bridal Makeup", 2),
           rating: 5
         }
       ]
@@ -297,7 +294,7 @@ const Services = () => {
           description: "Smooth, hair-free skin with gentle full face waxing",
           price: "₹400",
           duration: "30 mins",
-          image: fullFaceThreadingService,
+          image: servicePlaceholder("Full Face Waxing", 3),
           rating: 5
         },
         {
@@ -305,7 +302,7 @@ const Services = () => {
           description: "Complete arm waxing for silky smooth skin",
           price: "₹600",
           duration: "45 mins",
-          image: upperLipThreadingService,
+          image: servicePlaceholder("Full Arms Waxing", 0),
           rating: 5
         }
       ]
@@ -342,7 +339,7 @@ const Services = () => {
           description: "Rejuvenating full body massage for deep relaxation",
           price: "₹2,500",
           duration: "60 mins",
-          image: spaService,
+          image: servicePlaceholder("Deep Tissue Body Massage", 1),
           rating: 5
         }
       ]
