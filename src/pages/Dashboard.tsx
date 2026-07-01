@@ -158,15 +158,15 @@ export default function Dashboard() {
   const revenue = bookings.reduce((sum, b) => sum + (b.price || 0), 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#C4923A]/10 to-[#F5F0E8] p-4 md:p-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-        <div className="text-center md:text-left text-2xl md:text-3xl font-bold text-orange-600">
+        <div className="text-center md:text-left text-2xl md:text-3xl font-bold text-[#C4923A]">
           ✨ Glamour Heaven Dashboard ✨
         </div>
         <button
           onClick={handleLogout}
-          className="bg-red-500 text-white px-4 py-2 rounded-xl shadow hover:bg-red-600 w-full md:w-auto"
+          className="bg-[#C4923A] text-white px-4 py-2 rounded-xl shadow hover:bg-[#C4923A]/90 w-full md:w-auto"
         >
           Logout
         </button>
@@ -176,15 +176,15 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         <div className="bg-white p-6 rounded-2xl shadow text-center">
           <div className="text-gray-500">Pending Bookings</div>
-          <div className="text-2xl font-bold text-orange-600">{pendingCount}</div>
+          <div className="text-2xl font-bold text-[#C4923A]">{pendingCount}</div>
         </div>
         <div className="bg-white p-6 rounded-2xl shadow text-center">
           <div className="text-gray-500">Today's Appointments</div>
-          <div className="text-2xl font-bold text-orange-600">{todayCount}</div>
+          <div className="text-2xl font-bold text-[#C4923A]">{todayCount}</div>
         </div>
         <div className="bg-white p-6 rounded-2xl shadow text-center">
           <div className="text-gray-500">Total Customers</div>
-          <div className="text-2xl font-bold text-orange-600">{customers}</div>
+          <div className="text-2xl font-bold text-[#C4923A]">{customers}</div>
         </div>
         <div className="bg-white p-6 rounded-2xl shadow text-center">
           <div className="text-gray-500">Today's Revenue</div>
@@ -196,7 +196,7 @@ export default function Dashboard() {
       <div className="text-center md:text-right mb-6">
         <button
           onClick={() => setShowForm((prev) => !prev)}
-          className="bg-gradient-to-r from-orange-400 to-pink-400 text-white px-6 py-3 rounded-xl shadow hover:opacity-90 w-full md:w-auto"
+          className="bg-[#C4923A] text-white px-6 py-3 rounded-xl shadow hover:bg-[#C4923A]/90 w-full md:w-auto"
         >
           + Add Walk-in Service
         </button>
@@ -264,7 +264,7 @@ export default function Dashboard() {
 
             <button
               type="submit"
-              className="col-span-1 md:col-span-2 bg-orange-500 text-white px-6 py-3 rounded-xl shadow hover:bg-orange-600 w-full"
+              className="col-span-1 md:col-span-2 bg-[#C4923A] text-white px-6 py-3 rounded-xl shadow hover:bg-[#C4923A]/90 w-full"
             >
               Save Booking
             </button>

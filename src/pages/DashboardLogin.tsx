@@ -50,7 +50,7 @@ function DashboardLogin() {
         onSubmit={handleLogin}
         className="p-6 sm:p-10 bg-white/90 shadow-2xl rounded-2xl w-full max-w-sm sm:max-w-md"
       >
-        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center text-orange-600">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center text-[#C4923A]">
           ✨ Glamour Heaven Login ✨
         </h2>
 
@@ -59,7 +59,7 @@ function DashboardLogin() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="border border-gray-300 p-3 rounded-xl w-full mb-4 focus:ring-2 focus:ring-orange-500 outline-none"
+          className="border border-gray-300 p-3 rounded-xl w-full mb-4 focus:ring-2 focus:ring-[#C4923A] outline-none"
         />
 
         <input
@@ -67,12 +67,12 @@ function DashboardLogin() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="border border-gray-300 p-3 rounded-xl w-full mb-5 focus:ring-2 focus:ring-orange-500 outline-none"
+          className="border border-gray-300 p-3 rounded-xl w-full mb-5 focus:ring-2 focus:ring-[#C4923A] outline-none"
         />
 
         <button
           type="submit"
-          className="w-full bg-red-500 text-white p-3 rounded-xl shadow hover:bg-red-600 transition"
+          className="w-full bg-[#C4923A] text-white p-3 rounded-xl shadow hover:bg-[#C4923A]/90 transition"
         >
           Login
         </button>
