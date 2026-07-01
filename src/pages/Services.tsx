@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { servicePlaceholder } from "@/lib/servicePlaceholder";
 
 // Import all service images
+import fruitFacialService from "@/assets/fruit-facial-salon.png";
 import classicFacialService from "@/assets/classic-facial-service.jpg";
 import antiAgingFacialService from "@/assets/anti-aging-facial-service.jpg";
 import goldFacialService from "@/assets/gold-facial-service.jpg";
@@ -58,7 +59,7 @@ const Services = () => {
           description: "Refreshing facial using natural fruit extracts for glowing skin",
           price: "₹1,200",
           duration: "45 mins",
-          image: servicePlaceholder("Fruit Facial", 0),
+          image: fruitFacialService,
           rating: 5
         },
         {
