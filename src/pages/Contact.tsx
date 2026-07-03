@@ -34,7 +34,7 @@ const Contact = () => {
   const address = contactInfo[0];
 
   return (
-    <div className="min-h-screen py-16 sm:py-24 bg-gray-50">
+    <div className="min-h-screen pt-6 pb-16 sm:pt-8 sm:pb-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tagline */}
         <div className="text-center mb-16 sm:mb-20">
