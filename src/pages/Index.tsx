@@ -14,7 +14,7 @@ const Index = () => {
     {
       title: "Signature Facial",
       description: "Deep cleansing and rejuvenating facial treatment for glowing skin",
-      price: "₹2,500",
+      price: "$85",
       duration: "60 mins",
       image: facialService,
       rating: 5
@@ -22,7 +22,7 @@ const Index = () => {
     {
       title: "Hair Styling",
       description: "Professional hair cut, color, and styling by expert stylists",
-      price: "₹1,800",
+      price: "$65",
       duration: "90 mins",
       image: hairService,
       rating: 5
@@ -30,7 +30,7 @@ const Index = () => {
     {
       title: "Bridal Makeup",
       description: "Complete bridal makeover for your special day",
-      price: "₹8,000",
+      price: "$500",
       duration: "120 mins",
       image: makeupService,
       rating: 5

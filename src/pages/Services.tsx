@@ -48,7 +48,7 @@ const Services = () => {
         {
           title: "Classic Facial",
           description: "Deep cleansing facial with extraction and moisturizing",
-          price: "₹1,500",
+          price: "$85",
           duration: "45 mins",
           image: classicFacialService,
           rating: 5
@@ -56,7 +56,7 @@ const Services = () => {
         {
           title: "Anti-Aging Facial",
           description: "Advanced treatment to reduce fine lines and wrinkles",
-          price: "₹3,500",
+          price: "$120",
           duration: "75 mins",
           image: antiAgingFacialService,
           rating: 5
@@ -64,7 +64,7 @@ const Services = () => {
         {
           title: "Gold Facial",
           description: "Luxurious gold leaf treatment for radiant, glowing skin",
-          price: "₹5,000",
+          price: "$150",
           duration: "90 mins",
           image: goldFacialService,
           rating: 5
@@ -72,7 +72,7 @@ const Services = () => {
         {
           title: "Fruit Facial",
           description: "Refreshing facial using natural fruit extracts for glowing skin",
-          price: "₹1,200",
+          price: "$95",
           duration: "45 mins",
           image: fruitFacialService,
           rating: 5
@@ -80,7 +80,7 @@ const Services = () => {
         {
           title: "Hydrafacial",
           description: "Advanced hydra-dermabrasion treatment for deep hydration and clarity",
-          price: "₹4,500",
+          price: "$180",
           duration: "60 mins",
           image: hydrafacialService,
           rating: 5
@@ -88,7 +88,7 @@ const Services = () => {
         {
           title: "Brightening Facial",
           description: "Skin brightening treatment to even tone and restore radiance",
-          price: "₹2,000",
+          price: "$110",
           duration: "50 mins",
           image: brighteningFacialService,
           rating: 5
@@ -101,7 +101,7 @@ const Services = () => {
         {
           title: "Hair Cut & Style",
           description: "Professional haircut with wash and styling",
-          price: "₹800",
+          price: "$65",
           duration: "60 mins",
           image: hairCutStyleService,
           rating: 5
@@ -109,7 +109,7 @@ const Services = () => {
         {
           title: "Hair Treatment",
           description: "Deep conditioning and repair treatment",
-          price: "₹1,800",
+          price: "$85",
           duration: "90 mins",
           image: hairTreatmentService,
           rating: 5
@@ -117,7 +117,7 @@ const Services = () => {
         {
           title: "Hair Spa",
           description: "Nourishing hair spa treatment for smooth, healthy hair",
-          price: "₹1,500",
+          price: "$95",
           duration: "60 mins",
           image: hairSpaService,
           rating: 5
@@ -125,7 +125,7 @@ const Services = () => {
         {
           title: "Keratin Treatment",
           description: "Smoothing keratin treatment for frizz-free, silky hair",
-          price: "₹5,000",
+          price: "$280",
           duration: "120 mins",
           image: keratinTreatmentService,
           rating: 5
@@ -133,7 +133,7 @@ const Services = () => {
         {
           title: "Hair Coloring",
           description: "Vibrant full hair coloring with long-lasting shine",
-          price: "₹3,000",
+          price: "$120",
           duration: "90 mins",
           image: hairColoringService,
           rating: 5
@@ -141,7 +141,7 @@ const Services = () => {
         {
           title: "Highlights",
           description: "Dimensional hair highlights for a sun-kissed look",
-          price: "₹4,000",
+          price: "$150",
           duration: "120 mins",
           image: highlightsService,
           rating: 5
@@ -149,7 +149,7 @@ const Services = () => {
         {
           title: "Hair Straightening",
           description: "Long-lasting straightening treatment for sleek, smooth hair",
-          price: "₹4,500",
+          price: "$200",
           duration: "150 mins",
           image: hairStraighteningService,
           rating: 5
@@ -162,7 +162,7 @@ const Services = () => {
         {
           title: "Basic Manicure",
           description: "Nail shaping, cuticle care, and polish application",
-          price: "₹600",
+          price: "$35",
           duration: "45 mins",
           image: basicManicureService,
           rating: 5
@@ -170,7 +170,7 @@ const Services = () => {
         {
           title: "Gel Manicure",
           description: "Long-lasting gel polish with professional finish",
-          price: "₹1,200",
+          price: "$55",
           duration: "60 mins",
           image: gelManicureService,
           rating: 5
@@ -178,7 +178,7 @@ const Services = () => {
         {
           title: "Pedicure Deluxe",
           description: "Complete foot care with massage and premium polish",
-          price: "₹1,000",
+          price: "$65",
           duration: "75 mins",
           image: pedicureDeluxeService,
           rating: 5
@@ -186,7 +186,7 @@ const Services = () => {
         {
           title: "Luxury Gel Manicure",
           description: "Chip-resistant gel polish manicure with a glossy finish",
-          price: "₹1,200",
+          price: "$65",
           duration: "45 mins",
           image: luxuryGelManicureService,
           rating: 5
@@ -194,7 +194,7 @@ const Services = () => {
         {
           title: "Gel Pedicure",
           description: "Long-lasting gel polish pedicure with soothing foot pampering",
-          price: "₹1,500",
+          price: "$75",
           duration: "60 mins",
           image: gelPedicureService,
           rating: 5
@@ -202,7 +202,7 @@ const Services = () => {
         {
           title: "Nail Art",
           description: "Creative custom nail art designs for a unique look",
-          price: "₹800",
+          price: "$40",
           duration: "30 mins",
           image: nailArtService,
           rating: 5
@@ -210,7 +210,7 @@ const Services = () => {
         {
           title: "Nail Extensions",
           description: "Durable nail extensions for added length and strength",
-          price: "₹2,000",
+          price: "$85",
           duration: "90 mins",
           image: nailExtensionsService,
           rating: 5
@@ -223,7 +223,7 @@ const Services = () => {
         {
           title: "Party Makeup",
           description: "Glamorous makeup for special occasions",
-          price: "₹2,500",
+          price: "$150",
           duration: "90 mins",
           image: partyMakeupService,
           rating: 5
@@ -231,7 +231,7 @@ const Services = () => {
         {
           title: "Bridal Makeup",
           description: "Complete bridal look with hairstyling",
-          price: "₹8,000",
+          price: "$500",
           duration: "3 hours",
           image: makeupService,
           rating: 5
@@ -239,7 +239,7 @@ const Services = () => {
         {
           title: "Engagement Makeup",
           description: "Elegant makeup for engagement ceremonies",
-          price: "₹4,500",
+          price: "$250",
           duration: "2 hours",
           image: engagementMakeupService,
           rating: 5
@@ -247,7 +247,7 @@ const Services = () => {
         {
           title: "Premium Party Makeup",
           description: "Glamorous party makeup look for celebrations and nights out",
-          price: "₹3,000",
+          price: "$180",
           duration: "60 mins",
           image: premiumPartyMakeupService,
           rating: 5
@@ -255,7 +255,7 @@ const Services = () => {
         {
           title: "Elite Engagement Makeup",
           description: "Elegant engagement day makeup for a flawless look",
-          price: "₹6,000",
+          price: "$300",
           duration: "90 mins",
           image: eliteEngagementMakeupService,
           rating: 5
@@ -263,7 +263,7 @@ const Services = () => {
         {
           title: "Premium Bridal Makeup",
           description: "Stunning bridal makeup for your special day",
-          price: "₹15,000",
+          price: "$650",
           duration: "180 mins",
           image: premiumBridalMakeupService,
           rating: 5
@@ -276,7 +276,7 @@ const Services = () => {
         {
           title: "Eyebrow Threading",
           description: "Precise eyebrow shaping and threading",
-          price: "₹200",
+          price: "$12",
           duration: "20 mins",
           image: eyebrowService,
           rating: 5
@@ -284,7 +284,7 @@ const Services = () => {
         {
           title: "Full Face Threading",
           description: "Complete facial hair removal threading",
-          price: "₹500",
+          price: "$25",
           duration: "45 mins",
           image: fullFaceThreadingService,
           rating: 5
@@ -292,7 +292,7 @@ const Services = () => {
         {
           title: "Upper Lip Threading",
           description: "Quick and precise upper lip hair removal",
-          price: "₹150",
+          price: "$8",
           duration: "15 mins",
           image: upperLipThreadingService,
           rating: 5
@@ -300,7 +300,7 @@ const Services = () => {
         {
           title: "Full Face Waxing",
           description: "Smooth, hair-free skin with gentle full face waxing",
-          price: "₹400",
+          price: "$35",
           duration: "30 mins",
           image: fullFaceWaxingService,
           rating: 5
@@ -308,7 +308,7 @@ const Services = () => {
         {
           title: "Full Arms Waxing",
           description: "Complete arm waxing for silky smooth skin",
-          price: "₹600",
+          price: "$45",
           duration: "45 mins",
           image: fullArmsWaxingService,
           rating: 5
@@ -321,7 +321,7 @@ const Services = () => {
         {
           title: "Body Massage",
           description: "Relaxing full body massage with aromatic oils",
-          price: "₹2,000",
+          price: "$95",
           duration: "60 mins",
           image: bodyMassageService,
           rating: 5
@@ -329,7 +329,7 @@ const Services = () => {
         {
           title: "Hot Stone Massage",
           description: "Therapeutic massage with heated stones",
-          price: "₹3,500",
+          price: "$130",
           duration: "90 mins",
           image: hotStoneMassageService,
           rating: 5
@@ -337,7 +337,7 @@ const Services = () => {
         {
           title: "Body Scrub",
           description: "Exfoliating body treatment for smooth skin",
-          price: "₹1,800",
+          price: "$85",
           duration: "45 mins",
           image: bodyScrubService,
           rating: 5
@@ -345,7 +345,7 @@ const Services = () => {
         {
           title: "Deep Tissue Body Massage",
           description: "Rejuvenating full body massage for deep relaxation",
-          price: "₹2,500",
+          price: "$110",
           duration: "60 mins",
           image: deepTissueBodyMassageService,
           rating: 5
