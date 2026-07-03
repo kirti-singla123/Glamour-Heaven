@@ -1,9 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Sparkles
 } from "lucide-react";
 
 const Contact = () => {
@@ -30,58 +31,64 @@ const Contact = () => {
     }
   ];
 
+  const address = contactInfo[0];
+
   return (
-    <div className="min-h-screen py-12 sm:py-20 bg-gray-50">
+    <div className="min-h-screen py-16 sm:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tagline */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-golden bg-clip-text text-transparent">
+        <div className="text-center mb-16 sm:mb-20">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight bg-gradient-golden bg-clip-text text-transparent">
             "Your Beauty, Our Passion"
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto font-light">
             Experience the art of beauty and self-care at Glamour Heaven.
           </p>
         </div>
 
         {/* Contact Information */}
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 text-center text-gray-800 tracking-tight">
             We’re Here for You
           </h2>
+          <div className="w-20 h-1 bg-gradient-golden rounded-full mx-auto mb-10 sm:mb-12" />
 
           {/* Bridal packages message */}
-          <div className="text-center mb-8 sm:mb-10 px-2">
-            <p className="text-base sm:text-lg text-gray-700 font-medium">
-              💍 Planning your big day? Ask us about our{" "}
-              <span className="bg-gradient-golden bg-clip-text text-transparent font-semibold">
-                exclusive bridal packages
-              </span>{" "}
-              and{" "}
-              <span className="bg-gradient-golden bg-clip-text text-transparent font-semibold">
-                special discounts
-              </span>{" "}
-              just for you!
-            </p>
+          <div className="mb-14 sm:mb-16 px-2">
+            <div className="max-w-2xl mx-auto text-center bg-white border border-golden-accent/20 rounded-2xl shadow-soft px-6 py-5 sm:px-8 sm:py-6">
+              <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed">
+                💍 Planning your big day? Ask us about our{" "}
+                <span className="bg-gradient-golden bg-clip-text text-transparent font-semibold">
+                  exclusive bridal packages
+                </span>{" "}
+                and{" "}
+                <span className="bg-gradient-golden bg-clip-text text-transparent font-semibold">
+                  special discounts
+                </span>{" "}
+                just for you!
+              </p>
+            </div>
           </div>
 
           {/* Responsive grid */}
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 mb-16 sm:mb-20">
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
-                className="shadow-soft hover:shadow-luxury transition-shadow duration-300 rounded-xl"
+                className="group relative overflow-hidden border border-golden-accent/15 shadow-soft hover:shadow-luxury rounded-2xl bg-white transition-all duration-300 hover:-translate-y-1.5"
               >
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-golden scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-start space-x-4 sm:space-x-5">
+                    <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-gray-800">
+                      <h3 className="font-semibold text-base sm:text-lg mb-1.5 sm:mb-2 text-gray-800 tracking-wide">
                         {info.title}
                       </h3>
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-sm sm:text-base text-muted-foreground">
+                        <p key={idx} className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           {detail}
                         </p>
                       ))}
@@ -90,6 +97,29 @@ const Contact = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Decorative "Find Us" panel */}
+          <div className="relative overflow-hidden rounded-3xl border border-golden-accent/20 shadow-luxury bg-gradient-luxury">
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_1px_1px,hsl(var(--golden-accent))_1px,transparent_0)] bg-[length:24px_24px]" />
+            <div className="relative flex flex-col items-center justify-center text-center px-6 py-14 sm:py-20">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-golden rounded-full flex items-center justify-center shadow-glow animate-float mb-6">
+                <MapPin className="w-10 h-10 sm:w-12 sm:h-12 text-primary-foreground" />
+              </div>
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-golden-accent" />
+                <span className="uppercase text-xs sm:text-sm tracking-[0.2em] text-golden-accent font-semibold">
+                  Find Us
+                </span>
+                <Sparkles className="w-4 h-4 text-golden-accent" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 tracking-tight">
+                {address.details[0]}
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                {address.details[1]}, {address.details[2]}
+              </p>
+            </div>
           </div>
         </div>
       </div>
