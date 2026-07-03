@@ -360,7 +360,7 @@ const Services = () => {
       : serviceCategories.filter((cat) => cat.category === activeFilter);
 
   return (
-    <div className="min-h-screen py-12 sm:py-16">
+    <div className="min-h-screen pt-6 pb-12 sm:pt-8 sm:pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">

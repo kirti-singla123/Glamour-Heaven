@@ -6,7 +6,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-[80vh] flex items-start justify-center bg-gradient-hero overflow-hidden pt-16 sm:pt-20">
+    <section className="relative min-h-[80vh] flex items-start justify-center bg-gradient-hero overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-20 sm:w-32 h-20 sm:h-32 bg-golden-accent/20 rounded-full blur-3xl animate-float"></div>
@@ -16,7 +16,7 @@ const Hero = () => {
         ></div>
       </div>
 
-      <div className="container mx-auto px-4 py-10 sm:py-16 relative z-10">
+      <div className="container mx-auto px-4 pt-6 pb-10 sm:pt-8 sm:pb-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-6 sm:space-y-8 animate-fade-in">
