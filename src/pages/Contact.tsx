@@ -34,10 +34,10 @@ const Contact = () => {
   const address = contactInfo[0];
 
   return (
-    <div className="min-h-screen pt-6 pb-16 sm:pt-8 sm:pb-24">
+    <div className="min-h-screen pt-4 pb-10 sm:pt-6 sm:pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tagline */}
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center mb-8 sm:mb-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight bg-gradient-golden bg-clip-text text-transparent">
             "Your Beauty, Our Passion"
           </h1>
@@ -51,10 +51,10 @@ const Contact = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 text-center text-gray-800 tracking-tight">
             We’re Here for You
           </h2>
-          <div className="w-20 h-1 bg-gradient-golden rounded-full mx-auto mb-10 sm:mb-12" />
+          <div className="w-20 h-1 bg-gradient-golden rounded-full mx-auto mb-6 sm:mb-8" />
 
           {/* Bridal packages message */}
-          <div className="mb-14 sm:mb-16 px-2">
+          <div className="mb-8 sm:mb-10 px-2">
             <div className="max-w-2xl mx-auto text-center bg-white border border-golden-accent/20 rounded-2xl shadow-soft px-6 py-5 sm:px-8 sm:py-6">
               <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed">
                 💍 Planning your big day? Ask us about our{" "}
@@ -71,7 +71,7 @@ const Contact = () => {
           </div>
 
           {/* Responsive grid */}
-          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 mb-16 sm:mb-20">
+          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 mb-10 sm:mb-12">
             {contactInfo.map((info, index) => (
               <Card
                 key={index}

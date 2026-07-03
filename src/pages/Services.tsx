@@ -360,10 +360,10 @@ const Services = () => {
       : serviceCategories.filter((cat) => cat.category === activeFilter);
 
   return (
-    <div className="min-h-screen pt-6 pb-12 sm:pt-8 sm:pb-16">
+    <div className="min-h-screen pt-4 pb-10 sm:pt-6 sm:pb-14">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8">
             Discover our comprehensive range of beauty and wellness treatments designed to enhance your natural radiance
@@ -397,8 +397,8 @@ const Services = () => {
 
         {/* Service Categories */}
         {filteredCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-12 sm:mb-16">
-            <div className="mb-6 sm:mb-8 text-center lg:text-left">
+          <div key={categoryIndex} className="mb-8 sm:mb-10">
+            <div className="mb-4 sm:mb-6 text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl font-bold mb-2">
                 {category.category}
               </h2>
@@ -416,7 +416,7 @@ const Services = () => {
         ))}
 
         {/* CTA Section */}
-        <div className="bg-gradient-hero rounded-2xl p-6 sm:p-10 lg:p-12 text-center mt-12 sm:mt-16">
+        <div className="bg-gradient-hero rounded-2xl p-6 sm:p-10 lg:p-12 text-center mt-8 sm:mt-10">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
             Ready to Book Your Treatment?
           </h2>
