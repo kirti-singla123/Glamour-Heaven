@@ -11,17 +11,17 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      details: ["123 Beauty Street", "Fashion District, Mumbai", "Maharashtra 400001"]
+      details: ["123 Queen Street West", "Brampton, Ontario L6X 0A1", "Canada"]
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: ["+91 98765 43210", "+91 98765 43211"]
+      details: ["+1 905-123-4567", "+1 905-123-4568"]
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["glamourheaven.com", "appointments@glamourheaven.com"]
+      details: ["glamourheaven.netlify.app", "glamourhaven.salon@gmail.com"]
     },
     {
       icon: <Clock className="w-6 h-6" />,

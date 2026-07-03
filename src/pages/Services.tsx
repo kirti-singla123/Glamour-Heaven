@@ -428,9 +428,9 @@ const Services = () => {
               size="lg" 
               variant="outline" 
               className="text-sm sm:text-base border-primary/30 hover:bg-primary/5"
-              onClick={() => window.open('tel:+919876543210')}
+              onClick={() => window.open('tel:+19051234567')}
             >
-              Call Now: +91 98765 43210
+              Call Now: +1 905-123-4567
             </Button>
           </div>
         </div>

@@ -47,11 +47,11 @@ const Navigation = () => {
           {/* CTA + Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <a 
-              href="tel:+919876543210" 
+              href="tel:+19051234567"
               className="hidden sm:flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span className="text-sm">+91 98765 43210</span>
+              <span className="text-sm">+1 905-123-4567</span>
             </a>
 
             {/* Mobile menu toggle */}
@@ -82,10 +82,10 @@ const Navigation = () => {
               </Link>
             ))}
             <a 
-              href="tel:+919876543210" 
+              href="tel:+19051234567"
               className="block text-base text-muted-foreground hover:text-primary"
             >
-              +91 98765 43210
+              +1 905-123-4567
             </a>
           </div>
         )}
