@@ -4,8 +4,7 @@ import {
   Phone,
   Mail,
   Clock,
-  Sparkles,
-  Camera
+  Sparkles
 } from "lucide-react";
 
 const Contact = () => {
@@ -71,52 +70,33 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Picture section + contact details */}
-          <div className="grid gap-6 sm:gap-8 lg:grid-cols-5 lg:gap-10 mb-10 sm:mb-12 lg:items-stretch">
-            {/* Picture placeholder card with golden frame accent */}
-            <div className="lg:col-span-2">
-              <div className="relative flex flex-col items-center justify-center gap-3 h-full min-h-[240px] sm:min-h-[300px] lg:min-h-full p-6 rounded-2xl bg-gradient-luxury border-2 border-golden-accent/40 shadow-glow overflow-hidden">
-                <span className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-golden-accent rounded-tl-md" />
-                <span className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-golden-accent rounded-tr-md" />
-                <span className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-golden-accent rounded-bl-md" />
-                <span className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-golden-accent rounded-br-md" />
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-golden rounded-full flex items-center justify-center shadow-glow">
-                  <Camera className="w-7 h-7 sm:w-8 sm:h-8 text-primary-foreground" />
-                </div>
-                <p className="text-sm sm:text-base font-medium text-gray-600 tracking-wide uppercase">
-                  Photo Placeholder
-                </p>
-              </div>
-            </div>
-
-            {/* Responsive grid */}
-            <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:col-span-3">
-              {contactInfo.map((info, index) => (
-                <Card
-                  key={index}
-                  className="group relative overflow-hidden border border-golden-accent/15 shadow-soft hover:shadow-luxury rounded-2xl bg-white transition-all duration-300 hover:-translate-y-1.5"
-                >
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-golden scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-                  <CardContent className="p-6 sm:p-8">
-                    <div className="flex items-start space-x-4 sm:space-x-5">
-                      <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        {info.icon}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-base sm:text-lg mb-1.5 sm:mb-2 text-gray-800 tracking-wide">
-                          {info.title}
-                        </h3>
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
+          {/* Responsive grid */}
+          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 mb-10 sm:mb-12">
+            {contactInfo.map((info, index) => (
+              <Card
+                key={index}
+                className="group relative overflow-hidden border border-golden-accent/15 shadow-soft hover:shadow-luxury rounded-2xl bg-white transition-all duration-300 hover:-translate-y-1.5"
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-golden scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-start space-x-4 sm:space-x-5">
+                    <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-golden rounded-full flex items-center justify-center text-primary-foreground shadow-glow transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                      {info.icon}
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                    <div>
+                      <h3 className="font-semibold text-base sm:text-lg mb-1.5 sm:mb-2 text-gray-800 tracking-wide">
+                        {info.title}
+                      </h3>
+                      {info.details.map((detail, idx) => (
+                        <p key={idx} className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          {detail}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {/* Decorative "Find Us" panel */}
