@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import { createBooking } from "@/lib/bookingApi";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 const CHAT_API_URL = `${API_BASE_URL}/api/chat/`;
@@ -8,6 +10,90 @@ interface Message {
   id: string;
   role: "user" | "ai";
   text: string;
+}
+
+type BookingStep = "idle" | "service" | "date" | "time" | "name" | "phone" | "confirm";
+
+interface BookingData {
+  service: string;
+  date: string;
+  time: string;
+  name: string;
+  phone: string;
+}
+
+const EMPTY_BOOKING: BookingData = { service: "", date: "", time: "", name: "", phone: "" };
+
+const BOOKING_INTENT_RE = /\b(book|booking|appointment|schedule|reserve)\b/i;
+const CANCEL_RE = /^(cancel|stop|nevermind|never mind|quit)$/i;
+const YES_RE = /^(y|yes|yeah|yep|sure|confirm)$/i;
+const NO_RE = /^(n|no|nope|nah)$/i;
+
+// Parses dates like "2026-07-10", "07/10/2026", or "July 10 2026".
+// Returns the ISO (YYYY-MM-DD) form the backend expects, or an error reason.
+function parseBookingDate(text: string): { value: string } | { error: "invalid" | "past" } {
+  const trimmed = text.trim();
+  let parsed: Date | null = null;
+
+  const isoMatch = trimmed.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  const usMatch = trimmed.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+
+  if (isoMatch) {
+    parsed = new Date(Number(isoMatch[1]), Number(isoMatch[2]) - 1, Number(isoMatch[3]));
+  } else if (usMatch) {
+    parsed = new Date(Number(usMatch[3]), Number(usMatch[1]) - 1, Number(usMatch[2]));
+  } else {
+    const fallback = new Date(trimmed);
+    if (!isNaN(fallback.getTime())) parsed = fallback;
+  }
+
+  if (!parsed || isNaN(parsed.getTime())) return { error: "invalid" };
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  parsed.setHours(0, 0, 0, 0);
+
+  if (parsed.getTime() < today.getTime()) return { error: "past" };
+
+  const yyyy = parsed.getFullYear();
+  const mm = String(parsed.getMonth() + 1).padStart(2, "0");
+  const dd = String(parsed.getDate()).padStart(2, "0");
+  return { value: `${yyyy}-${mm}-${dd}` };
+}
+
+// Parses times like "2:30 PM" or "14:30" into 24-hour "HH:MM".
+function parseBookingTime(text: string): string | null {
+  const trimmed = text.trim().toLowerCase();
+  const match = trimmed.match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/);
+  if (!match) return null;
+
+  let hour = parseInt(match[1], 10);
+  const minute = match[2] ? parseInt(match[2], 10) : 0;
+  const meridiem = match[3];
+
+  if (minute > 59) return null;
+
+  if (meridiem) {
+    if (hour < 1 || hour > 12) return null;
+    if (meridiem === "pm" && hour !== 12) hour += 12;
+    if (meridiem === "am" && hour === 12) hour = 0;
+  } else if (hour < 0 || hour > 23) {
+    return null;
+  }
+
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+}
+
+function formatDisplayTime(time24: string): string {
+  const [h, m] = time24.split(":").map(Number);
+  const period = h >= 12 ? "PM" : "AM";
+  const hour12 = h % 12 === 0 ? 12 : h % 12;
+  return `${hour12}:${String(m).padStart(2, "0")} ${period}`;
+}
+
+function isValidPhone(text: string): boolean {
+  const digits = text.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
 }
 
 const Chatbot = () => {
@@ -21,24 +107,168 @@ const Chatbot = () => {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [bookingStep, setBookingStep] = useState<BookingStep>("idle");
+  const [bookingData, setBookingData] = useState<BookingData>(EMPTY_BOOKING);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading, isOpen]);
+
+  const pushAiMessage = (text: string) => {
+    setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: "ai", text }]);
+  };
+
+  const pushUserMessage = (text: string) => {
+    setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: "user", text }]);
+  };
+
+  const startBooking = () => {
+    setBookingData(EMPTY_BOOKING);
+    setBookingStep("service");
+    pushAiMessage("Great, let's get you booked! Which service would you like to book?");
+  };
+
+  const cancelBooking = () => {
+    setBookingStep("idle");
+    setBookingData(EMPTY_BOOKING);
+    pushAiMessage("No problem, I've cancelled that. Let me know if you'd like to start a new booking or ask me anything else!");
+  };
+
+  const submitBooking = async (data: BookingData) => {
+    setBookingStep("idle");
+    setIsLoading(true);
+    try {
+      const response = await createBooking(data);
+      if (response.ok) {
+        pushAiMessage(`You're all set, ${data.name}! Taking you to your booking confirmation now...`);
+        setIsOpen(false);
+        navigate("/booking-confirmation", {
+          state: {
+            name: data.name,
+            service: data.service,
+            date: data.date,
+            time: data.time,
+          },
+        });
+      } else {
+        pushAiMessage("Sorry, I couldn't submit your booking. Please try again, or use the booking form instead.");
+      }
+    } catch (error) {
+      pushAiMessage("I'm having trouble connecting right now. Please try again in a moment.");
+    } finally {
+      setIsLoading(false);
+      setBookingData(EMPTY_BOOKING);
+    }
+  };
+
+  const handleBookingStep = (text: string) => {
+    if (CANCEL_RE.test(text.trim())) {
+      cancelBooking();
+      return;
+    }
+
+    switch (bookingStep) {
+      case "service": {
+        if (!text.trim()) {
+          pushAiMessage("Please tell me which service you'd like to book.");
+          return;
+        }
+        setBookingData((prev) => ({ ...prev, service: text.trim() }));
+        setBookingStep("date");
+        pushAiMessage(`Got it — ${text.trim()}. What date would you like to come in? (e.g., 2026-07-10)`);
+        return;
+      }
+      case "date": {
+        const result = parseBookingDate(text);
+        if ("error" in result) {
+          pushAiMessage(
+            result.error === "past"
+              ? "That date has already passed. Please choose an upcoming date, e.g., 2026-07-10."
+              : "I couldn't understand that date. Please enter it like 2026-07-10 or 07/10/2026."
+          );
+          return;
+        }
+        setBookingData((prev) => ({ ...prev, date: result.value }));
+        setBookingStep("time");
+        pushAiMessage("What time works best for you? (e.g., 2:30 PM or 14:30)");
+        return;
+      }
+      case "time": {
+        const parsedTime = parseBookingTime(text);
+        if (!parsedTime) {
+          pushAiMessage("I couldn't understand that time. Please enter it like 2:30 PM or 14:30.");
+          return;
+        }
+        setBookingData((prev) => ({ ...prev, time: parsedTime }));
+        setBookingStep("name");
+        pushAiMessage("What name should we book this under?");
+        return;
+      }
+      case "name": {
+        if (text.trim().length < 2) {
+          pushAiMessage("Please enter your full name.");
+          return;
+        }
+        setBookingData((prev) => ({ ...prev, name: text.trim() }));
+        setBookingStep("phone");
+        pushAiMessage("And what's the best phone number to reach you on WhatsApp?");
+        return;
+      }
+      case "phone": {
+        if (!isValidPhone(text)) {
+          pushAiMessage("That doesn't look like a valid phone number. Please enter at least 10 digits, e.g., 416-555-0123.");
+          return;
+        }
+        const updated = { ...bookingData, phone: text.trim() };
+        setBookingData(updated);
+        setBookingStep("confirm");
+        pushAiMessage(
+          `Here's what I have:\n` +
+            `Service: ${updated.service}\n` +
+            `Date: ${updated.date}\n` +
+            `Time: ${formatDisplayTime(updated.time)}\n` +
+            `Name: ${updated.name}\n` +
+            `Phone: ${updated.phone}\n\n` +
+            `Do you want to confirm this booking? (Yes/No)`
+        );
+        return;
+      }
+      case "confirm": {
+        const lower = text.trim().toLowerCase();
+        if (YES_RE.test(lower)) {
+          submitBooking(bookingData);
+        } else if (NO_RE.test(lower)) {
+          cancelBooking();
+        } else {
+          pushAiMessage('Please reply "yes" to confirm or "no" to cancel.');
+        }
+        return;
+      }
+      default:
+        return;
+    }
+  };
 
   const sendMessage = async (e: FormEvent) => {
     e.preventDefault();
     const trimmed = input.trim();
     if (!trimmed || isLoading) return;
 
-    const userMessage: Message = {
-      id: crypto.randomUUID(),
-      role: "user",
-      text: trimmed,
-    };
-    setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    pushUserMessage(trimmed);
+
+    if (bookingStep !== "idle") {
+      handleBookingStep(trimmed);
+      return;
+    }
+
+    if (BOOKING_INTENT_RE.test(trimmed)) {
+      startBooking();
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -54,19 +284,9 @@ const Chatbot = () => {
       const reply: string =
         data.reply ?? data.response ?? data.message ?? "Sorry, I didn't quite catch that.";
 
-      setMessages((prev) => [
-        ...prev,
-        { id: crypto.randomUUID(), role: "ai", text: reply },
-      ]);
+      pushAiMessage(reply);
     } catch (error) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: crypto.randomUUID(),
-          role: "ai",
-          text: "Oops! I'm having trouble connecting right now. Please try again in a moment.",
-        },
-      ]);
+      pushAiMessage("Oops! I'm having trouble connecting right now. Please try again in a moment.");
     } finally {
       setIsLoading(false);
     }
@@ -149,6 +369,37 @@ const Chatbot = () => {
             <div ref={messagesEndRef} />
           </div>
 
+          {/* Quick actions */}
+          {bookingStep === "idle" && !isLoading && (
+            <div className="flex justify-start border-t border-[#8B7355]/10 bg-white px-3 pt-2">
+              <button
+                type="button"
+                onClick={startBooking}
+                className="rounded-full border border-[#C4923A]/40 bg-[#C4923A]/10 px-3 py-1 text-xs font-medium text-[#8B7355] transition-colors hover:bg-[#C4923A]/20"
+              >
+                📅 Book a Service
+              </button>
+            </div>
+          )}
+          {bookingStep === "confirm" && !isLoading && (
+            <div className="flex justify-start gap-2 border-t border-[#8B7355]/10 bg-white px-3 pt-2">
+              <button
+                type="button"
+                onClick={() => submitBooking(bookingData)}
+                className="rounded-full bg-[#C4923A] px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-[#C4923A]/90"
+              >
+                Yes, confirm
+              </button>
+              <button
+                type="button"
+                onClick={cancelBooking}
+                className="rounded-full border border-[#8B7355]/30 px-3 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-100"
+              >
+                No, cancel
+              </button>
+            </div>
+          )}
+
           {/* Input */}
           <form
             onSubmit={sendMessage}
@@ -158,7 +409,7 @@ const Chatbot = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type your message..."
+              placeholder={bookingStep === "idle" ? "Type your message..." : "Type your answer..."}
               disabled={isLoading}
               className="flex-1 rounded-full border border-[#8B7355]/25 bg-[#F5F0E8]/60 px-4 py-2 text-sm text-gray-700 outline-none placeholder:text-gray-400 focus:border-[#C4923A] focus:ring-2 focus:ring-[#C4923A]/30 disabled:opacity-60"
             />

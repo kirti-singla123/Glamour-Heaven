@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { createBooking } from "@/lib/bookingApi";
 
 interface FormData {
   name: string;
@@ -12,24 +13,15 @@ function BookingForm() {
   const { serviceName } = useParams<{ serviceName: string }>();
   const [form, setForm] = useState<FormData>({ name: "", date: "", time: "", phone: "" });
 
-  // ✅ Get token from localStorage
-  const token = localStorage.getItem("token");
   const navigate = useNavigate(); // initialize navigate
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const bookingData = { ...form, service: serviceName };
+    const bookingData = { ...form, service: serviceName ?? "" };
 
     try {
-      const response = await fetch("https://glamourheaven-backend.onrender.com/api/bookings/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token ? `Token ${token}` : "", // ✅ added token safely
-        },
-        body: JSON.stringify(bookingData),
-      });
+      const response = await createBooking(bookingData);
 
       if (response.ok) {
         navigate("/booking-confirmation", {
