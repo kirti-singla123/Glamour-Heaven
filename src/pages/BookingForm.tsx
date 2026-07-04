@@ -32,9 +32,14 @@ function BookingForm() {
       });
 
       if (response.ok) {
-        alert(`Booking confirmed for ${serviceName}!`);
-        setForm({ name: "", date: "", time: "", phone: "" }); // reset form
-        navigate("/"); // ✅ redirect to home page after booking
+        navigate("/booking-confirmation", {
+          state: {
+            name: form.name,
+            service: serviceName,
+            date: form.date,
+            time: form.time,
+          },
+        });
       } else {
         const errorData = await response.json();
         console.error("Error creating booking:", errorData);

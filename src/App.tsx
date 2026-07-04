@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BookingForm from "./pages/BookingForm";
+import BookingConfirmation from "./pages/BookingConfirmation";
 import Dashboard from "./pages/Dashboard"; // ✅ Dashboard
 import DashboardLogin from "./pages/DashboardLogin"; // ✅ Login page
 
@@ -31,6 +32,7 @@ const App = () => {
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/book/:serviceName" element={<BookingForm />} />
+              <Route path="/booking-confirmation" element={<BookingConfirmation />} />
               
               {/* ✅ Login route */}
               <Route path="/login" element={<DashboardLogin />} />

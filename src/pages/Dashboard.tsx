@@ -159,6 +159,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#C4923A]/10 to-[#F5F0E8] p-4 md:p-8">
+    <div className="max-w-[1400px] mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
         <div className="text-center md:text-left text-2xl md:text-3xl font-bold text-[#C4923A]">
@@ -339,6 +340,7 @@ export default function Dashboard() {
           </p>
         )}
       </div>
+    </div>
     </div>
   );
 }
