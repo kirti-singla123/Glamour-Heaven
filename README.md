@@ -31,6 +31,12 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 
 - ## 📸 Screenshots
 
+### Home
+![Home](public/home.png)
+
+### Services
+![Services](public/services.png)
+
 ### AI Chatbot
 ![AI Chatbot](public/AI_chatbot.png)
 
@@ -40,11 +46,6 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 ### Contact
 ![Contact](public/contact.png)
 
-### Home
-![Home](public/home.png)
-
-### Services
-![Services](public/services.png)
 
 ### 🛠️ For Staff/Admins  
 - ✅ **Dashboard** to view all bookings  
