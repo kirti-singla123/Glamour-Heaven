@@ -50,7 +50,7 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 ![Dashboard](public/dashboard.png)
 
 ### WhatsApp Notification
-![WhatsApp Notification](public/whatsapp.png)
+<img src="public/whatsapp.png" alt="WhatsApp Notification" width="300">
 
 
 ### 🛠️ For Staff/Admins  
