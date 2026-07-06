@@ -29,6 +29,23 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 - ✅ **AI Chatbot assistant** — ask about services, prices & bookings in real time
 - ✅ **Book directly through the AI chatbot** — complete a full booking (service, date, time, name & phone) via conversation, with the same confirmation and WhatsApp notification as the regular booking form
 
+- ## 📸 Screenshots
+
+### AI Chatbot
+![AI Chatbot](public/AI_chatbot.png)
+
+### Booking Form
+![Booking Form](public/booking_form.png)
+
+### Contact
+![Contact](public/contact.png)
+
+### Home
+![Home](public/home.png)
+
+### Services
+![Services](public/services.png)
+
 ### 🛠️ For Staff/Admins  
 - ✅ **Dashboard** to view all bookings  
 - ✅ **Accept / Reject** bookings in one click  
