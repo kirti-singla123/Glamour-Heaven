@@ -46,6 +46,12 @@ The system is built with a **React frontend** and a **Django backend**, seamless
 ### Contact
 ![Contact](public/contact.png)
 
+### Dashboard
+![Dashboard](public/dashboard.png)
+
+### WhatsApp Notification
+![WhatsApp Notification](public/whatsapp.png)
+
 
 ### 🛠️ For Staff/Admins  
 - ✅ **Dashboard** to view all bookings  
